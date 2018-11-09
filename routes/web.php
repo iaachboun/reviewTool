@@ -15,8 +15,10 @@ Route::get('/', 'BaseController@index');
 
 Route::prefix('faker')->group(function () {
     Route::get('combine/{options}', 'FakerController@combine');
+    Route::post('gegevens', 'FakerController@store');
     Route::get('name', 'FakerController@name');
     Route::get('phone', 'FakerController@phone');
     Route::get('email', 'FakerController@email');
+    Route::get('job', 'FakerController@jobdesc');
     Route::get('company', 'FakerController@company');
 });

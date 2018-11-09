@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\inlogData;
 use Faker\Factory as Faker;
+use http\Env\Request;
 
 /**
  * Class FakerController
@@ -15,6 +17,7 @@ class FakerController extends Controller
      */
     public function combine($options)
     {
+
         $options = explode(",", $options);
         $result = [];
         foreach ($options as $option) {
@@ -25,6 +28,19 @@ class FakerController extends Controller
         return json_encode($result);
     }
 
+
+    public function store(Request $request){
+        $faker = Faker::create();
+
+        $inlogGegevens = inlogData::firstOrCreate(['name' => $faker->name]);
+        $inlogGegevens->email = $faker->email;
+        $inlogGegevens->phone = $faker->phoneNumber;
+        $inlogGegevens->job = $faker->jobTitle;
+        $inlogGegevens->company = $faker->company;
+
+        $inlogGegevens->save();
+    }
+
     /**
      * Get fake name
      */
@@ -32,7 +48,6 @@ class FakerController extends Controller
     {
         $faker = Faker::create();
         return $faker->name;
-
     }
 
     /**
@@ -45,16 +60,17 @@ class FakerController extends Controller
     }
 
     /**
-     * Get fake phone number
+     * Get fake email
      */
     public function email()
     {
+
         $faker = Faker::create();
         return $faker->email;
     }
 
     /**
-     * Get fake phone number
+     * Get fake job
      */
     public function jobdesc()
     {
@@ -69,5 +85,7 @@ class FakerController extends Controller
     {
         $faker = Faker::create();
         return $faker->company;
+
     }
+
 }
