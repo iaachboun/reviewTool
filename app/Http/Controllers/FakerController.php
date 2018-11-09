@@ -32,6 +32,7 @@ class FakerController extends Controller
     {
         $faker = Faker::create();
         return $faker->name;
+
     }
 
     /**

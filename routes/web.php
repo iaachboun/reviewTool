@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', [
-    'as' => 'index',
-    'uses' => 'BaseController@index'
-]);
+Route::get('/', 'BaseController@index');
 
 Route::prefix('faker')->group(function () {
     Route::get('combine/{options}', 'FakerController@combine');
