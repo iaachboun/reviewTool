@@ -28,19 +28,16 @@ class FakerController extends Controller
     }
 
 
-    public function store()
+    public function store(Request $request)
     {
-        $faker = Faker::create('nl_NL');
-
-        $inlogGegevens = inlogData::firstOrCreate(['name' => $faker->name , 'email' => $faker->email]);
-        $inlogGegevens->userName = $faker->userName;
-        $inlogGegevens->phone = $faker->phoneNumber;
-        $inlogGegevens->job = $faker->jobTitle;
-        $inlogGegevens->company = $faker->company;
-
-        $inlogGegevens->save();
-
-        return back();
+        /*$data = $request->getContent();
+        $dataex = json_decode($data, true);*/
+        return"hello kill me";
+        //model
+        /*$inlogData = new inlogData();
+        $inlogData->name = intval($item["name"]);
+        $inlogData->password = $item["csv"];
+        $inlogData->save();*/
     }
 
 

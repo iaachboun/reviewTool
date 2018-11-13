@@ -11,10 +11,13 @@
 |
 */
 
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
 Route::get('/', 'BaseController@index');
 
-Route::post('gegevens', 'FakerController@store');
-
+Route::post('store', 'FakerController@store');
 
 Route::prefix('faker')->group(function () {
     Route::get('combine/{options}', 'FakerController@combine');
