@@ -15,11 +15,9 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1 class="title">Review tool</h1>
-        <div class="center">
-            <button class="button">Account aanmaken</button>
-            <button class="button">Review plaatsen</button>
+        <div id="app">
+
         </div>
-        <script src="" async defer></script>
+        <script src="js/app.js" async defer></script>
     </body>
 </html>
