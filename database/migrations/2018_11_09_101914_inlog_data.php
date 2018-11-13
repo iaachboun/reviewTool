@@ -16,12 +16,7 @@ class inlogData extends Migration
         Schema::create('inlogData', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone')->nullable();
-            $table->string('job')->nullable();
             $table->string('password')->nullable();
-            $table->string('username')->nullable();
-            $table->string('company')->nullable();
             $table->timestamps();
         });
     }

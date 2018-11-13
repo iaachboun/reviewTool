@@ -18,13 +18,7 @@ class inlogDataTableSeeder extends Seeder
         for ($i = 0; $i < $limit; $i++) {
             DB::table('inlogData')->insert([ //,
                 'name' => $faker->name,
-                'phone' => $faker->phoneNumber,
-                'job' => $faker->jobTitle,
                 'password' => $faker->password,
-                'username' => $faker->userName,
-                'email' => $faker->unique()->email,
-                'company' => $faker->company
-
             ]);
         }
     }
