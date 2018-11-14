@@ -10,10 +10,7 @@
             </nav>
         </header>
         <main>
-            <div class="center">
-                <h1 class="center-title">Account aanmaken<span class="gradient">?</span></h1>
-                <button class="button">Account aanmaken</button>
-            </div>
+
         </main>
     </div>
 </template>

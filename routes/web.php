@@ -17,8 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/', 'BaseController@index');
 
-Route::post('store', 'FakerController@store');
-
 Route::prefix('faker')->group(function () {
     Route::get('combine/{options}', 'FakerController@combine');
     Route::get('name', 'FakerController@name');

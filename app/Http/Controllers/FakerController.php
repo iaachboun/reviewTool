@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\inlogData;
 use Faker\Factory as Faker;
-use http\Env\Request;
+use Illuminate\Http\Request;
+use Response;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+
 
 /**
  * Class FakerController
@@ -30,14 +34,19 @@ class FakerController extends Controller
 
     public function store(Request $request)
     {
-        /*$data = $request->getContent();
-        $dataex = json_decode($data, true);*/
-        return"hello kill me";
+        $data = $request->getContent();
+        $dataex = json_decode($data, true);
         //model
-        /*$inlogData = new inlogData();
-        $inlogData->name = intval($item["name"]);
-        $inlogData->password = $item["csv"];
-        $inlogData->save();*/
+        $inlogData = new inlogData();
+        $inlogData->name = $dataex["name"];
+        $inlogData->password = $dataex["password"];
+        $inlogData->save();
+        return"succes";
+    }
+    public function test()
+    {
+        return"test";
+
     }
 
 
