@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/store', 'FakerController@store');
 Route::get('/store', 'FakerController@test');
+Route::get('/post', 'FakerController@post');

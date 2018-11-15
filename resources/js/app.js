@@ -1,22 +1,24 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import review from './components/review.vue'
-import home from './components/home.vue'
-import app from './components/app.vue'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import review from './components/review'
+import home from './components/home'
+import app from './components/app'
 
+Vue.config.productionTip = false;
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/review', component: review},
-    { path: '/', component: home}
+    {path: '/', component: home},
+    {path: '/review', component: review},
 ];
 
 const router = new VueRouter({
-    routes: routes
-})
+    routes: routes,
+    mode: 'history',
+});
 
 new Vue({
-   render: h => h(app),
-   router,
+    render: h => h(app),
+    router,
 }).$mount('#app');
 
