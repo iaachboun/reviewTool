@@ -20,3 +20,7 @@ Route::prefix('faker')->group(function () {
     Route::get('email', 'FakerController@email');
     Route::get('company', 'FakerController@company');
 });
+
+Route::get('name', function () {
+    echo 'lol';
+});
