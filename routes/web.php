@@ -22,5 +22,5 @@ Route::prefix('faker')->group(function () {
 });
 
 Route::get('name', function () {
-    echo 'lol';
+    return view('name');
 });
