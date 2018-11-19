@@ -18,6 +18,7 @@ class CreateReviewTable extends Migration
             $table->timestamps();
             $table->text('review');
             $table->string('source', 100);
+            $table->smallInteger('status');
         });
     }
 
