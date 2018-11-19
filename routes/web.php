@@ -22,3 +22,7 @@ Route::prefix('faker')->group(function () {
     Route::get('job', 'FakerController@jobdesc');
     Route::get('company', 'FakerController@company');
 });
+
+Route::get('name', function () {
+    return view('name');
+});
