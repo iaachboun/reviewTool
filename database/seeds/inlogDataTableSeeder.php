@@ -12,7 +12,7 @@ class inlogDataTableSeeder extends Seeder
     public function run()
     {
 //     maakt 33 fake data direct naar de database
-        $faker = Faker\Factory::create();
+        /*$faker = Faker\Factory::create();
         $limit = 1;
 
         for ($i = 0; $i < $limit; $i++) {
@@ -20,6 +20,6 @@ class inlogDataTableSeeder extends Seeder
                 'name' => $faker->name,
                 'password' => $faker->password,
             ]);
-        }
+        }*/
     }
 }

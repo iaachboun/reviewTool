@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\inloggenRecourse;
 use App\inlogData;
 use Faker\Factory as Faker;
 use Illuminate\Http\Request;
@@ -31,7 +32,9 @@ class FakerController extends Controller
         return json_encode($result);
     }
 
-
+    /**
+     * saves fake data into database
+     */
     public function store(Request $request)
     {
         $data = $request->getContent();
@@ -41,14 +44,23 @@ class FakerController extends Controller
         $inlogData->name = $dataex["name"];
         $inlogData->password = $dataex["password"];
         $inlogData->save();
-        return"succes";
+        return $dataex["name"];
     }
+
     public function test()
     {
-        return"test";
+        return "test01";
 
     }
 
+    /**
+     * gives fake data to ..
+     */
+    public function post(Request $request)
+    {
+        $inlogData = inlogData::all();
+        return inloggenRecourse::collection($inlogData);
+    }
 
     /**
      * Get fake name
