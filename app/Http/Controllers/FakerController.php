@@ -60,8 +60,6 @@ class FakerController extends Controller
     {
         $inlogData = inlogData::all();
         return inloggenRecourse::collection($inlogData);
-
-
     }
 
     /**

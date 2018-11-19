@@ -11,13 +11,7 @@
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::get('/', 'BaseController@index');
-
-Route::get('/echo/:name', 'startPuppeteer@engine');
 
 Route::prefix('faker')->group(function () {
     Route::get('combine/{options}', 'FakerController@combine');

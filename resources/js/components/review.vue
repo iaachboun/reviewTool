@@ -30,7 +30,9 @@
 </script>
 
 <style>
-    button:focus {outline:0;}
+    button:focus {
+        outline: 0;
+    }
 
     .data {
         color: white;
@@ -46,15 +48,10 @@
     .inlogGegevens {
         padding: 20px;
         text-align: center;
-        position: absolute;
-        top: 45%;
-        left: 50%;
-        margin-right: -50%;
-        -webkit-transform: translate(-50%, -45%);
-        transform: translate(-50%, -45%);
         width: fit-content;
         height: fit-content;
         border-radius: 5px;
         background-color: #3b3b3b;
+        margin: 90px auto 0 auto;
     }
 </style>

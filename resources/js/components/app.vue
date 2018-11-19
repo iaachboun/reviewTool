@@ -6,11 +6,11 @@
                 <ul>
                     <li>
                         <router-link to="/" class="nav-item">Account aanmaken</router-link>
-                        <div class="hover-stripe"></div>
+                        <div class="hover_stripe"></div>
                     </li>
                     <li>
                         <button @click="getLoginGegevens()" class="nav-item-button">Review plaatsen</button>
-                        <div class="active"></div>
+                        <div class="hover_stripe"></div>
                     </li>
                 </ul>
             </nav>
@@ -28,7 +28,6 @@
         data() {
             return {
                 inlogGegevens: [],
-                arrayLength: []
             }
         },
         methods: {
@@ -52,4 +51,11 @@
         cursor: pointer;
         font-size: inherit;
     }
+
+    header{
+        top: 0;
+        position: fixed;
+        z-index: 2;
+    }
+
 </style>

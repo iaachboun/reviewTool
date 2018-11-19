@@ -3,20 +3,24 @@
         <main>
             <div class="center">
                 <h1 class="center-title">Account aanmaken<span class="gradient">?</span></h1>
-                <button @click="usePuppeteer()" class="button">Account aanmaken</button>
+                <button @click="getPuppeteer()" class="button">Account aanmaken</button>
             </div>
         </main>
     </div>
 </template>
 
 <script>
+    import axios from "axios"
     export default {
         data() {
-            return {
-                registreren: require("../pptr-auto/Scripts/Registreren.js")
-
-            }
+            return {}
         },
+
+        methods: {
+            getPuppeteer() {
+                axios.get('http://localhost:8080/echo');
+            },
+        }
     }
 </script>
 
