@@ -9,14 +9,14 @@
                         <div class="hover_stripe"></div>
                     </li>
                     <li>
-                        <button @click="getLoginGegevens()" class="nav-item-button">Edit review</button>
+                        <button @click="getReviews()" class="nav-item-button">Edit review</button>
                         <div class="hover_stripe"></div>
                     </li>
                 </ul>
             </nav>
         </header>
         <main>
-            <router-view v-bind:inlogGegevens="inlogGegevens"></router-view>
+            <router-view v-bind:reviews="reviews"></router-view>
         </main>
     </div>
 </template>
@@ -27,16 +27,26 @@
     export default {
         data() {
             return {
+                reviews: [],
                 inlogGegevens: [],
             }
         },
         methods: {
             getLoginGegevens() {
-                axios.get('http://review-tool.test/api/post')
+                axios.get('http://review-backend.test/api/post')
                     .then(response => {
                         this.inlogGegevens = response.data.data;
                         this.$router.push({path: 'review'});
 
+                    });
+            },
+
+            getReviews() {
+                axios.get('http://review-backend.test/api/reviewData')
+                    .then(response => {
+                        this.reviews= response.data.data;
+                        this.$router.push({path: 'review'});
+                        console.log(response.data.data[0].review)
                     });
             },
         }
