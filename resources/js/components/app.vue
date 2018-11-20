@@ -33,39 +33,15 @@
         },
         methods: {
             getReviews() {
-                axios.get('http://review-backend.test/api/reviewData')
+                axios.get('http://review-tool.test/api/reviewData')
                     .then(response => {
                         this.reviews= response.data.data;
                         this.$router.push({path: 'review'});
-                        console.log(response.data.data[0].review)
                     });
             },
+        },
+        mounted() {
+            this.getReviews();
         }
     }
 </script>
-
-<style>
-    button:active {
-        outline: none;
-        border: none;
-    }
-
-    .nav-item-button{
-        color: white;
-        border: none;
-        background: none;
-        cursor: pointer;
-        font-size: inherit;
-    }
-
-    header{
-        top: 0;
-        position: fixed;
-        z-index: 2;
-    }
-
-    .center{
-        position: fixed;
-        left: 70%;
-    }
-</style>

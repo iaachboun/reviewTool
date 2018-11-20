@@ -82,6 +82,20 @@
                 transition: opacity 1s;
             }
     /*main css*/
+        .review-container{
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+            color: $aBitOfGrey;
+        }
+        .reviewGedeelte{
+            width: 200px;
+            margin: 0 auto; 
+        }
+        .goedkeuren{
+            background-color: $lighterdarkGrey;
+            margin-bottom: 5px;
+        }
         /*Container css*/
             .center{
                 position: absolute;
@@ -131,3 +145,27 @@
                 .button:focus{
                     outline: none;
                 }
+        /*ilias code*/
+            button{
+                font-family: inherit;
+            }
+            button:active {
+                outline: none;
+                border: none;
+            }
+            button:focus{
+                border: none;
+                outline: none;
+            }
+        
+            .nav-item-button{
+                color: white;
+                border: none;
+                background: none;
+                cursor: pointer;
+                font-size: inherit;
+            }
+            .center{
+                position: fixed;
+                left: 70%;
+            }
