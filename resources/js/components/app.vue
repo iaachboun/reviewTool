@@ -32,15 +32,6 @@
             }
         },
         methods: {
-            getLoginGegevens() {
-                axios.get('http://review-backend.test/api/post')
-                    .then(response => {
-                        this.inlogGegevens = response.data.data;
-                        this.$router.push({path: 'review'});
-
-                    });
-            },
-
             getReviews() {
                 axios.get('http://review-backend.test/api/reviewData')
                     .then(response => {
