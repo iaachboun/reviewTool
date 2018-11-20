@@ -21,3 +21,4 @@ Route::get('/echo', 'startPuppeteer@engine');
 Route::post('/store', 'FakerController@store');
 Route::get('/store', 'FakerController@test');
 Route::get('/post', 'FakerController@post');
+Route::post('/review', 'ReviewController@review');
