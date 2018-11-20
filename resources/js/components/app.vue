@@ -5,11 +5,11 @@
             <nav>
                 <ul>
                     <li>
-                        <router-link to="/" class="nav-item">Account aanmaken</router-link>
+                        <router-link to="/" class="nav-item">Review plaatsen</router-link>
                         <div class="hover_stripe"></div>
                     </li>
                     <li>
-                        <button @click="getLoginGegevens()" class="nav-item-button">Review plaatsen</button>
+                        <button @click="getLoginGegevens()" class="nav-item-button">Edit review</button>
                         <div class="hover_stripe"></div>
                     </li>
                 </ul>
@@ -32,7 +32,7 @@
         },
         methods: {
             getLoginGegevens() {
-                axios.get('http://review-backend.test/api/post')
+                axios.get('http://review-tool.test/api/post')
                     .then(response => {
                         this.inlogGegevens = response.data.data;
                         this.$router.push({path: 'review'});
