@@ -45,6 +45,11 @@
 </script>
 
 <style>
+    button:active {
+        outline: none;
+        border: none;
+    }
+
     .nav-item-button{
         color: white;
         border: none;
@@ -59,4 +64,8 @@
         z-index: 2;
     }
 
+    .center{
+        position: fixed;
+        left: 70%;
+    }
 </style>

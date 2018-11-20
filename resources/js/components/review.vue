@@ -6,6 +6,10 @@
                 <p>{{data.source}}</p>
             </div>
         </div>
+        <div class="center">
+            <h1 class="center-title">Review Goedkeuren<span class="gradient">?</span></h1>
+            <button @click="getPuppeteer()" class="button">Goedkeuren</button>
+        </div>
     </div>
 </template>
 

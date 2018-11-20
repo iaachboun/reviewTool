@@ -20,5 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/store', 'FakerController@store');
 Route::get('/store', 'FakerController@test');
 
+Route::post('/save', 'puppeteerData@postReview');
+
 Route::get('/inlogData', 'puppeteerData@inlogData');
 Route::get('/reviewData', 'puppeteerData@reviewData');

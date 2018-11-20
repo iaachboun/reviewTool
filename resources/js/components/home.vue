@@ -1,9 +1,16 @@
 <template>
     <div>
         <main>
+            <div class="reviewGedeelte">
+                <div v-if="false" v-for="data in reviews" class="goedkeuren">
+                    <p>{{data.status}}</p>
+                    <p>{{data.review}}</p>
+                    <p>{{data.source}}</p>
+                </div>
+            </div>
             <div class="center">
-                <h1 class="center-title">Account aanmaken<span class="gradient">?</span></h1>
-                <button @click="getPuppeteer()" class="button">Account aanmaken</button>
+                <h1 class="center-title">Review plaatsen<span class="gradient">?</span></h1>
+                <button @click="getPuppeteer()" class="button">Plaats review</button>
             </div>
         </main>
     </div>
@@ -11,9 +18,14 @@
 
 <script>
     import axios from "axios"
+
     export default {
+        props: ['reviews'],
         data() {
-            return {}
+            return {
+                false: false,
+                true: true
+            }
         },
 
         methods: {
@@ -25,5 +37,14 @@
 </script>
 
 <style>
+    .reviewGedeelte {
+        margin: 117px 0 0 20px;
+        width: 40%;
+        float: left;
+        border: 1px solid red;
+    }
 
+    .goedkeuren {
+        border-bottom: 1px solid white;
+    }
 </style>
