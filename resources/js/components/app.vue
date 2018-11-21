@@ -9,7 +9,7 @@
                         <div class="hover_stripe"></div>
                     </li>
                     <li>
-                        <button @click="getReviews()" class="nav-item-button">Edit review</button>
+                        <router-link to="/review" class="nav-item">Review plaatsen</router-link>
                         <div class="hover_stripe"></div>
                     </li>
                 </ul>
@@ -36,7 +36,6 @@
                 axios.get('http://review-tool.test/api/reviewData')
                     .then(response => {
                         this.reviews= response.data.data;
-                        this.$router.push({path: 'review'});
                     });
             },
         },
