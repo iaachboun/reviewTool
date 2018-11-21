@@ -1,2 +1,3 @@
 <?php
-$_GET['review'];
+
+echo 'test';

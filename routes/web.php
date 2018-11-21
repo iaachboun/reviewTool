@@ -23,9 +23,8 @@ Route::prefix('faker')->group(function () {
     Route::get('company', 'FakerController@company');
 });
 
-Route::get('review', function () {
-    return view('Review');
-});
+Route::post('review', 'ReviewController@review');
+Route::get('review', 'ReviewController@test');
 
 /*Route::prefix('review')->group(function () {
     Route::get('combine.{options}', 'ReviewController@combine');

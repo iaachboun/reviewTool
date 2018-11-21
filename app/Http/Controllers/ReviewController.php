@@ -1,15 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Resources\inloggenRecourse;
-use App\inlogData;
-use App\review;
-use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use illuminate\Database\Connection;
+
+
+use App\review;
 use Response;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Input;
 
 
 /**
@@ -18,15 +16,37 @@ use Illuminate\Support\Facades\Input;
  */
 class ReviewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     public function review(Request $request)
     {
-        $data = $request->getContent();
-        $dataex = json_decode($data, true);
-/*        //model
-        $review = new review();
-        $review->name = $dataex["name"];
-        $review->password = $dataex["password"];
-        $review->save();*/
-        return $dataex;
+        $data = $request->all();
+        $source = 'Robohost';
+
+        $sources = array("Robohost","iXLhosting","HostingNet","Domeinwinkel","Hosting2Go","Mijndomein","SoHosted","Antagonist","Hostnet","Versio");
+
+        $source = $sources[0];
+
+        for ($o = 0; $o < 10 ; $o++) {
+
+            for ($i = 0; $i <= 18 ; $i++) {
+                var_dump($data[$source][$i]);
+
+                DB::table('review')->insert([
+                    ['review' => $data[$source][$i]],
+                    ['source' => $source]
+                ]);
+            }
+            $source = $sources[$o];
+
+        }
+
+    }
+
+    public function test()
+    {
     }
 }
