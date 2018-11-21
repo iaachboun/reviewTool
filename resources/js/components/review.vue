@@ -16,7 +16,6 @@
 <script>
 export default {
     props: ['reviews'],
-
 }
 </script>
 
