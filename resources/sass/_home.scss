@@ -10,6 +10,7 @@
             height: auto;
         }
         body{
+            position: relative;
             margin: 0;
             width: 100%;
             font-family: $font;
@@ -19,6 +20,9 @@
         header{
             height: 70px;
             width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 10;
             background-color: $lighterdarkGrey;
         }
         .title{
@@ -82,6 +86,30 @@
                 transition: opacity 1s;
             }
     /*main css*/
+        .review-container{
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+            color: $aBitOfGrey;
+        }
+        .reviewGedeelte{
+            width: 500px;
+            margin: 0 auto; 
+        }
+        .goedkeuren{
+            min-height: 200px;
+            background-color: $lighterdarkGrey;
+            margin-bottom: 20px;
+        }
+        .review-text{
+            border: none;
+            padding: 0;
+            min-width: 500px;
+            min-height: 150px;
+            background-color: $lighterdarkGrey;
+            color: $aBitOfGrey;
+            font-size: 22px
+        }
         /*Container css*/
             .center{
                 position: absolute;
@@ -130,4 +158,43 @@
                 }
                 .button:focus{
                     outline: none;
+                }
+                .btn{
+                    display: inline-block;
+                    min-width: 50%;
+                    height: 40px;
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    font-size: 18px;
+                    transition: all 0.5s ease;
+                }
+                .btn:focus{
+                    outline: none;
+                    border: none;
+                    font-size: 14px;
+                    transition: all 0.1s ease;
+                }
+                .red{
+                    background: linear-gradient(125deg, $lightred, $purered, $lightred);
+                    background-size: 200% 200%;
+                    background-color: $purered;
+                    color: $aBitOfGrey;
+                    float: right;
+                }
+                .green{
+                    background: linear-gradient(125deg, $lightgreen, $puregreen, $lightgreen);
+                    background-size: 200% 200%;
+                    background-color: $puregreen;
+                    color: $aBitOfGrey;
+                }
+                .red:hover{
+                    transition: all 0.5s ease;
+                    background-position: 100% 32%;
+                    background-color: $lightred;
+                }
+                .green:hover{
+                    transition: all 0.5s ease;
+                    background-position: 100% 32%;
+                    background-color: $lightgreen;
                 }

@@ -13,8 +13,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    routes: routes,
-    mode: 'history',
+    routes: routes
 });
 
 new Vue({

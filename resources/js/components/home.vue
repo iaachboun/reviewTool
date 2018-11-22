@@ -32,15 +32,3 @@
         }
     }
 </script>
-
-<style>
-    .reviewGedeelte{
-        margin: 117px 0 0 20px;
-        width: 40%;
-        float: left;
-        border: 1px solid red;
-    }
-    .goedkeuren{
-        border-bottom: 1px solid white;
-    }
-</style>
