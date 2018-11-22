@@ -1,7 +1,7 @@
 <template>
     <div>
         <header>
-            <h1 class="title">Review tool</h1>
+            <router-link to="/" class="title">Review tool</router-link>
             <nav>
                 <ul>
                     <li>
@@ -29,18 +29,25 @@
             return {
                 reviews: [],
                 inlogGegevens: [],
+                aantalReviews: ''
             }
         },
         methods: {
             getReviews() {
                 axios.get('http://review-backend.test/api/reviewData')
                     .then(response => {
-                        this.reviews= response.data.data;
+                        this.reviews = response.data.data;
                     });
+            },
+            getAantal() {
+                this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
+                console.log(this.aantalReviews)
             },
         },
         mounted() {
             this.getReviews();
-        }
+            setTimeout(this.getAantal, 1000)
+        },
+
     }
 </script>

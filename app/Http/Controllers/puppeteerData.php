@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\inlogData;
 use Illuminate\Http\Request;
 use App\Http\Resources\inloggenRecourse;
 use App\review;
 
-class puppeteerData extends Controller{
+class puppeteerData extends Controller
+{
     /**
      * gives fake data to ..
      */
@@ -25,7 +27,8 @@ class puppeteerData extends Controller{
         return inloggenRecourse::collection($reviewData);
     }
 
-    public function postReview(Request $request){
+    public function postReview(Request $request)
+    {
         $data = $request->getContent();
         $dataex = json_decode($data, true);
 
@@ -34,7 +37,17 @@ class puppeteerData extends Controller{
         $review->status = 0;
         $review->source = $dataex["source"];
         $review->save();
-        
+
         return $dataex;
+    }
+
+    public function update(Request $request, $id)
+    {
+        $review = review::where('id', $id)->first();
+        $newReview = $request->all();
+        $review->review = $newReview{"review"};
+        $review->status = $newReview{"status"};
+        $review->save();
+        return response()->json(['message' => 'review updated']);
     }
 }

@@ -4,7 +4,7 @@
             white-space: -moz-pre-wrap;
             word-wrap: break-word;
         }
-        
+
         img {
             max-width: 100%;
             height: auto;
@@ -56,7 +56,7 @@
                 padding: 4px 18px;
                 cursor: pointer;
             }
-            
+
             li:hover > .hover_stripe{
                 background: -webkit-gradient(linear, left top, right top, from($whaleBlue), to($blurple));
                 background: linear-gradient(90deg, $whaleBlue 0%, $blurple 100%);
@@ -75,7 +75,7 @@
                 background: linear-gradient(90deg, $whaleBlue 0%, $blurple 100%);
                 background-color: #ffffff;
             }
-            
+
             .hover_stripe{
                 width: 1px;
                 height: 2px;
@@ -94,7 +94,7 @@
         }
         .reviewGedeelte{
             width: 500px;
-            margin: 0 auto; 
+            margin: 0 auto;
         }
         .goedkeuren{
             min-height: 200px;
@@ -104,8 +104,8 @@
         .review-text{
             font-family: inherit;
             border: none;
-            padding: 0;
-            min-width: 500px;
+            padding: 15px;
+            min-width: 470px;
             min-height: 150px;
             background-color: $lighterdarkGrey;
             color: $aBitOfGrey;
@@ -116,10 +116,35 @@
             border: none;
         }
         /*Container css*/
+            .centerData {
+                color: white;
+                position: fixed;
+                top: 35%;
+                right: 122%;
+                margin-right: -50%;
+                -webkit-transform: translate(-50%, -45%);
+                transform: translate(-50%, -45%);
+                width: 250px;
+                height: 56px;
+                border-radius: 5px;
+                background-color: #3b3b3b;
+                text-align: center;
+            }
             .center{
-                position: absolute;
-                    top: 45%;
-                    left: 50%;
+                position: fixed;
+                    top: 35%;
+                    left: 82%;
+                margin-right: -50%;
+                transform: translate(-50%, -45%);
+                width: 250px;
+                height: 150px;
+                border-radius: 5px;
+                background-color: $lighterdarkGrey;
+            }
+            .center-left{
+                position: fixed;
+                top: 55%;
+                left: 82%;
                 margin-right: -50%;
                 transform: translate(-50%, -45%);
                 width: 250px;
@@ -202,4 +227,8 @@
                     transition: all 0.5s ease;
                     background-position: 100% 32%;
                     background-color: $lightgreen;
+                }
+
+                #uploadReview{
+                    width: 100%;
                 }
