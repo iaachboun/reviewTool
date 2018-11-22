@@ -102,6 +102,7 @@
             margin-bottom: 20px;
         }
         .review-text{
+            font-family: inherit;
             border: none;
             padding: 0;
             min-width: 500px;
@@ -109,6 +110,10 @@
             background-color: $lighterdarkGrey;
             color: $aBitOfGrey;
             font-size: 22px
+        }
+        .review-text:focus{
+            outline: none;
+            border: none;
         }
         /*Container css*/
             .center{
