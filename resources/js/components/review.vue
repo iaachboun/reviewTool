@@ -66,19 +66,3 @@
 
     }
 </script>
-
-<style>
-    .centerData {
-        position: fixed;
-        top: 35%;
-        right: 122%;
-        margin-right: -50%;
-        -webkit-transform: translate(-50%, -45%);
-        transform: translate(-50%, -45%);
-        width: 250px;
-        height: 56px;
-        border-radius: 5px;
-        background-color: #3b3b3b;
-        text-align: center;
-    }
-</style>
