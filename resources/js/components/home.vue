@@ -4,10 +4,10 @@
             <div class="reviewGedeelte">
                 <div v-for="data in reviews" class="goedkeuren" v-if="data.status === 1">
                     <p class="review-text">{{data.review}}</p>
-                    <button class="btn green" id="uploadReview" @click=" getPuppeteer(); changeStatus(data.id);">Plaats review</button>
+                    <button class="btn blue" id="uploadReview" @click=" getPuppeteer(); changeStatus(data.id);">Plaats review</button>
                 </div>
                 <div class="centerData">
-                    <p class="amountReviews">Amount of reviews: {{aantalReviews}}</p>
+                    <p class="amountReviews">Gekeurde reviews: {{aantalReviews}}</p>
                 </div>
             </div>
 
@@ -36,8 +36,11 @@
                 axios.get('http://localhost:8080/echo/formInvullen');
             },
         },
-        mounted() {
+        created() {
             setTimeout(this.getAantal, 100)
         },
     }
 </script>
+<style>
+
+</style>

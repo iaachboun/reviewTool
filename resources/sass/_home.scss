@@ -120,7 +120,7 @@
                 color: white;
                 position: fixed;
                 top: 35%;
-                right: 122%;
+                right: 120%;
                 margin-right: -50%;
                 -webkit-transform: translate(-50%, -45%);
                 transform: translate(-50%, -45%);
@@ -212,20 +212,26 @@
                     color: $aBitOfGrey;
                     float: right;
                 }
+                .blue{
+                    background-size: 200% 200%;
+                    background-color: $whaleBlue;
+                    color: $aBitOfGrey;
+                }
                 .green{
                     background: linear-gradient(125deg, $lightgreen, $puregreen, $lightgreen);
                     background-size: 200% 200%;
                     background-color: $puregreen;
                     color: $aBitOfGrey;
                 }
-                .red:hover{
+                .red:hover, .green:hover, .blue:hover{
                     transition: all 0.5s ease;
                     background-position: 100% 32%;
-                    background-color: $lightred;
+                }
+
+                .red:hover{
+                  background-color: $lightred;
                 }
                 .green:hover{
-                    transition: all 0.5s ease;
-                    background-position: 100% 32%;
                     background-color: $lightgreen;
                 }
 
