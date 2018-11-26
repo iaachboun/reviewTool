@@ -27,7 +27,7 @@
             return {
                 updatedReview: '',
                 title: 'hello',
-                aantalReviews: '',
+                aantalReviews: 11,
                 form: {
                     title: ''
                 }
@@ -47,7 +47,7 @@
                 this.updatedReview = document.querySelectorAll('#reviewText')[0].innerHTML
             },
             getReviews() {
-                axios.get('http://localhost:8080/echo/getReviews');
+                axios.get('http://localhost:4116/echo/getReviews');
                 location.reload();
             },
             //add button

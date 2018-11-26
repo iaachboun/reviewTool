@@ -33,7 +33,7 @@
                 console.log(this.aantalReviews)
             },
             getPuppeteer() {
-                axios.get('http://localhost:8080/echo/formInvullen');
+                axios.get('http://localhost:9229/echo/formInvullen');
             },
         },
         created() {

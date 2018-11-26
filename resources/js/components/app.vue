@@ -37,7 +37,7 @@
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
             },
             getReviews() {
-                axios.get('http://review-backend.test/api/reviewData')
+                axios.get('https://review.test/#/review')
                     .then(response => {
                         this.reviews = response.data.data;
                     });
