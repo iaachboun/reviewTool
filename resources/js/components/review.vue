@@ -46,31 +46,7 @@
             getReviews() {
                 axios.get('http://localhost:8080/echo/getReviews');
             },
-<<<<<<< HEAD
-            //add button
-            changeStatus(id) {
-                console.log(id);
-                this.$http.put(`http://review-tool.test/api/update/${id}`, {
-                    status: 1,
-                }).then(function () {
-                    location.reload();
-                });
-            },
-            //delete button
-            deleteFromPage(id) {
-                this.$http.put(`http://review-tool.test/api/update/${id}`, {
-                    review: 'deleted file',
-                    status: 2,
-                }).then(function () {
-                    location.reload()
-                });
-            }
-        },
-        mounted() {
-            this.form.title = this.title;
-=======
 
->>>>>>> 610964c38cbd57cafee41443e27b3e7a81480b3d
         },
 
         created() {
