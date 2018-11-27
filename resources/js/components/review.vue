@@ -49,7 +49,7 @@
             //add button
             changeStatus(id) {
                 console.log(id);
-                this.$http.put(`http://review-backend.test/api/update/${id}`, {
+                this.$http.put(`http://review-tool.test/api/update/${id}`, {
                     status: 1,
                 }).then(function () {
                     location.reload();
@@ -57,7 +57,7 @@
             },
             //delete button
             deleteFromPage(id) {
-                this.$http.put(`http://review-backend.test/api/update/${id}`, {
+                this.$http.put(`http://review-tool.test/api/update/${id}`, {
                     review: 'deleted file',
                     status: 2,
                 }).then(function () {

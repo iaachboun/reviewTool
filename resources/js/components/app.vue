@@ -9,7 +9,7 @@
                         <div class="hover_stripe"></div>
                     </li>
                     <li>
-                        <router-link to="/review" class="nav-item">Review plaatsen</router-link>
+                        <router-link to="/review" class="nav-item">Review toevoegen</router-link>
                         <div class="hover_stripe"></div>
                     </li>
                 </ul>
@@ -37,7 +37,7 @@
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
             },
             getReviews() {
-                axios.get('http://review-backend.test/api/reviewData')
+                axios.get('http://review-tool.test/api/reviewData')
                     .then(response => {
                         this.reviews = response.data.data;
                     });
