@@ -38,7 +38,6 @@
             getReviews() {
                 axios.get('http://localhost:8080/echo/getReviews');
             },
-<<<<<<< HEAD
             //add button
             changeStatus(id) {
                 console.log(id);
@@ -60,9 +59,6 @@
         },
         mounted() {
             this.form.title = this.title;
-=======
-
->>>>>>> 610964c38cbd57cafee41443e27b3e7a81480b3d
         },
 
         created() {
