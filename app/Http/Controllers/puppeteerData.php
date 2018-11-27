@@ -23,7 +23,7 @@ class puppeteerData extends Controller
      */
     public function reviewData(Request $request)
     {
-        $reviewData = review::all();
+        $reviewData = review::all()->take(100);
         return inloggenRecourse::collection($reviewData);
     }
 
@@ -46,6 +46,15 @@ class puppeteerData extends Controller
         $review = review::where('id', $id)->first();
         $newReview = $request->all();
         $review->review = $newReview{"review"};
+        $review->status = $newReview{"status"};
+        $review->save();
+        return response()->json(['message' => 'review updated']);
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $review = review::where('id', $id)->first();
+        $newReview = $request->all();
         $review->status = $newReview{"status"};
         $review->save();
         return response()->json(['message' => 'review updated']);

@@ -102,24 +102,25 @@
             margin-bottom: 20px;
         }
         .review-text{
-            font-family: inherit;
-            border: none;
-            padding: 15px;
-            min-width: 470px;
-            min-height: 150px;
-            background-color: $lighterdarkGrey;
-            color: $aBitOfGrey;
-            font-size: 22px
+          resize: none;
+          overflow: hidden;
+          font-family: inherit;
+          border: none;
+          padding: 15px;
+          min-width: 470px;
+          height: 150px;
+          background-color: $lighterdarkGrey;
+          color: $aBitOfGrey;
+          font-size: 22px
         }
         .review-text:focus{
             outline: none;
             border: none;
         }
         /*Container css*/
-            .centerData {
+            .centerData, .legendaBox {
                 color: white;
                 position: fixed;
-                top: 35%;
                 right: 120%;
                 margin-right: -50%;
                 -webkit-transform: translate(-50%, -45%);
@@ -129,7 +130,19 @@
                 border-radius: 5px;
                 background-color: #3b3b3b;
                 text-align: center;
+                padding: 0 10px 0 10px;
             }
+
+            .centerData{
+              top: 27%;
+              height: 56px;
+            }
+
+            .legendaBox{
+              height: 74px;
+              top: 35%;
+            }
+
             .center{
                 position: fixed;
                     top: 35%;
@@ -213,6 +226,7 @@
                     float: right;
                 }
                 .blue{
+                    background: linear-gradient(125deg, $whaleBlue, $blurple, $whaleBlue);
                     background-size: 200% 200%;
                     background-color: $whaleBlue;
                     color: $aBitOfGrey;
@@ -236,5 +250,5 @@
                 }
 
                 #uploadReview{
-                    width: 100%;
+                    width: 50%;
                 }
