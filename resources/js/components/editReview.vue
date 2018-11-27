@@ -6,7 +6,6 @@
             <button class="btn green" @click=" changeStatus(data.id); save();"><i class="fas fa-check"></i></button>
             <button class="btn red" @click="deleteFromPage(data.id)"><i class="fas fa-times"></i></button>
         </div>
-
     </div>
 </template>
 
@@ -31,7 +30,6 @@
 
             //add button
             changeStatus(id) {
-                console.log(id);
                 this.$http.put(`http://review-backend.test/api/update/${id}`, {
                     review: this.form.title,
                     status: 1,
