@@ -37,9 +37,29 @@
             },
 
             getReviews() {
-                axios.get('http://localhost:4116/echo/getReviews');
+                axios.get('http://review-backend.test/echo/getReviews');
             },
-
+            //add button
+            changeStatus(id) {
+                console.log(id);
+                this.$http.put(`http://review-backend.test/api/update/${id}`, {
+                    status: 1,
+                }).then(function () {
+                    location.reload();
+                });
+            },
+            //delete button
+            deleteFromPage(id) {
+                this.$http.put(`http://review-backend.test/api/update/${id}`, {
+                    review: 'deleted file',
+                    status: 2,
+                }).then(function () {
+                    location.reload()
+                });
+            }
+        },
+        mounted() {
+            this.form.title = this.title;
         },
 
         created() {

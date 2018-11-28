@@ -25,21 +25,22 @@
         props: ['reviews'],
         data() {
             return {
-                aantalReviews: ''
+                aantalReviews: 'test'
             }
         },
 
         methods: {
             getAantal() {
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
-                console.log(this.aantalReviews)
+                console.log(this.aantalReviews);
+                console.log('lol');
             },
             getPuppeteer() {
-                axios.get('http://localhost:9229/echo/formInvullen');
+                axios.get('http://review-backend.test/echo/formInvullen');
             },
             //delete button
             deleteFromPage(id) {
-                this.$http.put(`http://review.test/api/update/${id}`, {
+                this.$http.put(`http://review-backend.test/api/update/${id}`, {
                     review: 'deleted file',
                     status: 2,
                 }).then(function () {
