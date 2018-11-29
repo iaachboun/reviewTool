@@ -1,6 +1,7 @@
 <template>
     <div>
         <main>
+
             <div class="reviewGedeelte">
                 <div v-for="data in reviews" class="goedkeuren" v-if="data.status === 1">
                     <p class="review-text" onclick='this.style.height = ""; this.style.height = this.scrollHeight + "px"'>{{data.review}}</p>
@@ -11,6 +12,7 @@
                 </div>
                 <div class="centerData">
                     <p class="amountReviews">Gekeurde reviews: {{aantalReviews}}</p>
+                    <img id="img" src="" alt=" reCaptcha">
                 </div>
             </div>
 
@@ -32,7 +34,6 @@
         methods: {
             getAantal() {
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
-                console.log(this.aantalReviews)
             },
             getPuppeteer() {
                 axios.get('http://localhost:8080/echo/formInvullen');
@@ -47,7 +48,7 @@
                 });
             }
         },
-        created() {
+        mounted() {
             setTimeout(this.getAantal, 100)
         },
     }

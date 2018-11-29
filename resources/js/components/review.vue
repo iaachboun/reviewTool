@@ -36,7 +36,7 @@
         methods: {
 
             getNewReviews(){
-              axios.get(`http://review-backend.test/api/pptReviews/${8843}`)
+              axios.get(`http://review-tool.test/api/pptReviews/${8843}`)
             },
 
             getAantal() {
@@ -44,7 +44,7 @@
             },
 
             getReviews() {
-                axios.get('http://localhost:8080/echo/getReviews');
+                axios.get('http://localhost:3306/echo/getReviews');
             },
 
         },

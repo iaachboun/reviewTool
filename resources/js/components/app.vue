@@ -45,8 +45,6 @@
         },
         mounted() {
             this.getReviews();
-        },
-        created() {
             setTimeout(this.getAantal, 100)
         },
 

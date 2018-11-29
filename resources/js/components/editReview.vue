@@ -30,7 +30,7 @@
 
             //add button
             changeStatus(id) {
-                this.$http.put(`http://review-backend.test/api/update/${id}`, {
+                this.$http.put(`http://review-tool.test/api/update/${id}`, {
                     review: this.form.title,
                     status: 1,
                 }).then(function () {
@@ -39,7 +39,7 @@
             },
             //delete button
             deleteFromPage(id) {
-                this.$http.put(`http://review-backend.test/api/delete/${id}`, {
+                this.$http.put(`http://review-tool.test/api/delete/${id}`, {
                     status: 2,
                 }).then(function () {
                     location.reload()
