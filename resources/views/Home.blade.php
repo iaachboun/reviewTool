@@ -18,8 +18,6 @@
         <![endif]-->
         <div id="app"></div>
 
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="../js/reCaptcha.js"></script>
         <script src="js/app.js" async defer></script>
     </body>
 </html>

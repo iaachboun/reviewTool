@@ -12,7 +12,6 @@
                 </div>
                 <div class="centerData">
                     <p class="amountReviews">Gekeurde reviews: {{aantalReviews}}</p>
-                    <img id="img" src="" alt=" reCaptcha">
                 </div>
             </div>
 
