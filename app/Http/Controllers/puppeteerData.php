@@ -54,16 +54,8 @@ class puppeteerData extends Controller
     public function delete(Request $request, $id)
     {
         $review = review::where('id', $id)->first();
-        $newReview = $request->all();
-        $review->status = $newReview{"status"};
-        $review->save();
+        $review->delete();
         return response()->json(['message' => 'review updated']);
     }
 
-    //werkt nog niet :)
-    public function reviewsPuppeteer(Request $request, $id)
-    {
-        $review = review::all()->where('id' , $id)->first();
-        return inloggenRecourse::collection($review);
-    }
 }
