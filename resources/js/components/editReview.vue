@@ -30,8 +30,6 @@
 
             //add button
             changeStatus(id) {
-
-            }
                 this.$http.put(`http://review-tool.test/api/update/${id}`, {
                     review: this.form.title,
                     status: 1,
