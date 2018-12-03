@@ -32,6 +32,7 @@
                 aantalReviews: ''
             }
         },
+
         methods: {
             getReviews() {
                 axios.get('http://review-tool.test/api/reviewData')
@@ -43,6 +44,5 @@
         mounted() {
             this.getReviews();
         },
-
     }
 </script>

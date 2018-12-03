@@ -30,8 +30,8 @@
         methods: {
             getAantal() {
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
-                console.log(this.aantalReviews);
             },
+
             getPuppeteer(place) {
                 axios.post('http://review-tool.test/api/placeReview', {place: place})
                     .then(function (response) {
