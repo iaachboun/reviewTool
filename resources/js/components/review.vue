@@ -1,57 +1,72 @@
 <template>
-    <div>
-        <div class="inlogGegevens">
-            <table>
-                <tr>
-                    <th class="type"><h1>Username</h1></th>
-                    <th class="type"><h1>Password</h1></th>
-                </tr>
-                <tr v-for="data in inlogGegevens">
-                    <td class="data">{{data.name}}</td>
-                    <td class="data">{{data.password}}</td>
-                </tr>
-            </table>
+    <div class="review-container">
+        <div class="reviewGedeelte" v-for="data in reviews">
+            <editReview v-bind:data="data"></editReview>
         </div>
-
+        <div class="center">
+            <h1 class="center-title">Get more reviews<span class="gradient">?</span></h1>
+            <button @click="getReviews" class="button">Get more</button>
+        </div>
+        <div class="centerData">
+            <p class="amountReviews">Ongekeurde reviews: {{aantalReviews}}</p>
+        </div>
+        <div class="legendaBox">
+            <p class="legenda">Klik op een review om alles te zien of om het te bewerken</p>
+        </div>
     </div>
 </template>
-
 <script>
+    import editReview from "../components/editReview"
+    import axios from "axios"
+
     export default {
-
-        props: ['inlogGegevens'],
-
-        data() {
-            return {}
+        props: ['reviews'],
+        components: {
+            'editReview': editReview,
         },
 
-        methods: {}
+        data() {
+            return {
+                aantalReviews: '',
+                data: [],
+                test: 'test',
+            }
+        },
+
+        methods: {
+            getAantal() {
+                this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
+            },
+            getReviews() {
+                axios.get('http://review-backend.test/api/reviewData');
+            },
+            //add button
+            changeStatus(id) {
+                console.log(id);
+                this.$http.put(`http://review-backend.test/api/update/${id}`, {
+                    status: 1,
+                }).then(function () {
+                    location.reload();
+                });
+            },
+            //delete button
+            deleteFromPage(id) {
+                this.$http.put(`http://review-backend.test/api/update/${id}`, {
+                    review: 'deleted file',
+                    status: 2,
+                }).then(function () {
+                    location.reload()
+                });
+            }
+        },
+        mounted() {
+            this.form.title = this.title;
+                axios.get('http://localhost:3306/echo/getReviews');
+            },
+        },
+
+        created() {
+            setTimeout(this.getAantal, 100);
+        },
     }
 </script>
-
-<style>
-    button:focus {
-        outline: 0;
-    }
-
-    .data {
-        color: white;
-        text-align: center;
-        padding: 10px;
-        pointer: none;
-    }
-
-    .type {
-        color: #5d81ec;
-    }
-
-    .inlogGegevens {
-        padding: 20px;
-        text-align: center;
-        width: fit-content;
-        height: fit-content;
-        border-radius: 5px;
-        background-color: #3b3b3b;
-        margin: 90px auto 0 auto;
-    }
-</style>

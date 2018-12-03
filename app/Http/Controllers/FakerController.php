@@ -54,15 +54,6 @@ class FakerController extends Controller
     }
 
     /**
-     * gives fake data to ..
-     */
-    public function post(Request $request)
-    {
-        $inlogData = inlogData::all();
-        return inloggenRecourse::collection($inlogData);
-    }
-
-    /**
      * Get fake name
      */
     public

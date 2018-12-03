@@ -9,6 +9,7 @@
         <title>Review tool</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
@@ -17,6 +18,7 @@
         <![endif]-->
         <div id="app"></div>
 
-        <script src="js/app.js" async defer></script>
+        <script src="../js/app.js" async defer></script>
+
     </body>
 </html>

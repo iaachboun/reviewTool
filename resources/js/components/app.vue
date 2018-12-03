@@ -1,22 +1,22 @@
 <template>
     <div>
         <header>
-            <h1 class="title">Review tool</h1>
+            <router-link to="/" class="title">Review tool</router-link>
             <nav>
                 <ul>
                     <li>
-                        <router-link to="/" class="nav-item">Account aanmaken</router-link>
+                        <router-link to="/" class="nav-item">Review plaatsen</router-link>
                         <div class="hover_stripe"></div>
                     </li>
                     <li>
-                        <button @click="getLoginGegevens()" class="nav-item-button">Review plaatsen</button>
+                        <router-link to="/review" class="nav-item">Review toevoegen</router-link>
                         <div class="hover_stripe"></div>
                     </li>
                 </ul>
             </nav>
         </header>
         <main>
-            <router-view v-bind:inlogGegevens="inlogGegevens"></router-view>
+            <router-view v-bind:reviews="reviews"></router-view>
         </main>
     </div>
 </template>
@@ -27,35 +27,26 @@
     export default {
         data() {
             return {
+                reviews: [],
                 inlogGegevens: [],
+                aantalReviews: ''
             }
         },
         methods: {
-            getLoginGegevens() {
-                axios.get('http://review-backend.test/api/post')
+            getAantal() {
+                this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
+            },
+            getReviews() {
+                axios.get('http://review-backend.test/api/reviewData')
                     .then(response => {
-                        this.inlogGegevens = response.data.data;
-                        this.$router.push({path: 'review'});
-
+                        this.reviews = response.data.data;
                     });
             },
-        }
+        },
+        mounted() {
+            this.getReviews();
+            setTimeout(this.getAantal, 100)
+        },
+
     }
 </script>
-
-<style>
-    .nav-item-button{
-        color: white;
-        border: none;
-        background: none;
-        cursor: pointer;
-        font-size: inherit;
-    }
-
-    header{
-        top: 0;
-        position: fixed;
-        z-index: 2;
-    }
-
-</style>

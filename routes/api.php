@@ -16,8 +16,17 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/echo', 'startPuppeteer@engine');
+
+Route::put('/update/{id}', 'puppeteerData@update');
+Route::put('/delete/{id}', 'puppeteerData@delete');
 
 Route::post('/store', 'FakerController@store');
 Route::get('/store', 'FakerController@test');
-Route::get('/post', 'FakerController@post');
+
+Route::post('/save', 'puppeteerData@postReview');
+
+Route::get('/inlogData', 'puppeteerData@inlogData');
+Route::get('/reviewData', 'puppeteerData@reviewData');
+
+Route::post('/placeReview', 'puppeteerData@placeReview');
+Route::get('/placeReview', 'puppeteerData@placeReview');
