@@ -38,12 +38,12 @@
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
             },
             getReviews() {
-                axios.get('http://review-backend.test/api/reviewData');
+                axios.get('http://review-tool.test/api/reviewData');
             },
             //add button
             changeStatus(id) {
                 console.log(id);
-                this.$http.put(`http://review-backend.test/api/update/${id}`, {
+                this.$http.put(`http://review-tool.test/api/update/${id}`, {
                     status: 1,
                 }).then(function () {
                     location.reload();
@@ -51,7 +51,7 @@
             },
             //delete button
             deleteFromPage(id) {
-                this.$http.put(`http://review-backend.test/api/update/${id}`, {
+                this.$http.put(`http://review-tool.test/api/update/${id}`, {
                     review: 'deleted file',
                     status: 2,
                 }).then(function () {
@@ -59,14 +59,12 @@
                 });
             }
         },
+
         mounted() {
+            setTimeout(this.getAantal, 100);
             this.form.title = this.title;
-                axios.get('http://localhost:3306/echo/getReviews');
-            },
+            axios.get('http://localhost:3306/echo/getReviews');
         },
 
-        created() {
-            setTimeout(this.getAantal, 100);
-        },
     }
 </script>

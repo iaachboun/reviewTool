@@ -33,11 +33,8 @@
             }
         },
         methods: {
-            getAantal() {
-                this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
-            },
             getReviews() {
-                axios.get('http://review-backend.test/api/reviewData')
+                axios.get('http://review-tool.test/api/reviewData')
                     .then(response => {
                         this.reviews = response.data.data;
                     });
@@ -45,7 +42,6 @@
         },
         mounted() {
             this.getReviews();
-            setTimeout(this.getAantal, 100)
         },
 
     }
