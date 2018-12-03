@@ -1,6 +1,5 @@
 <template>
     <div class="review-container">
-
         <div class="reviewGedeelte" v-for="data in reviews">
             <editReview v-bind:data="data"></editReview>
         </div>
@@ -14,7 +13,6 @@
         <div class="legendaBox">
             <p class="legenda">Klik op een review om alles te zien of om het te bewerken</p>
         </div>
-
     </div>
 </template>
 <script>
@@ -26,6 +24,7 @@
         components: {
             'editReview': editReview,
         },
+
         data() {
             return {
                 aantalReviews: '',
@@ -33,20 +32,14 @@
                 test: 'test',
             }
         },
+
         methods: {
-
-            getNewReviews(){
-              axios.get(`http://review-tool.test/api/pptReviews/${8843}`)
-            },
-
             getAantal() {
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
             },
-
             getReviews() {
                 axios.get('http://localhost:3306/echo/getReviews');
             },
-
         },
 
         created() {

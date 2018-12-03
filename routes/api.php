@@ -20,8 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::put('/update/{id}', 'puppeteerData@update');
 Route::put('/delete/{id}', 'puppeteerData@delete');
 
-Route::get('/pptReviews/{id}', 'puppeteerData@reviewsPuppeteer');
-
 Route::post('/store', 'FakerController@store');
 Route::get('/store', 'FakerController@test');
 

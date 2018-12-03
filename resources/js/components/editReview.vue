@@ -39,8 +39,7 @@
             },
             //delete button
             deleteFromPage(id) {
-                this.$http.put(`http://review-tool.test/api/update/${id}`, {
-                    status: 2,
+                this.$http.put(`http://review-tool.test/api/delete/${id}`, {
                 }).then(function () {
                     location.reload()
                 });
