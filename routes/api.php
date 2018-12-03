@@ -27,3 +27,6 @@ Route::post('/save', 'puppeteerData@postReview');
 
 Route::get('/inlogData', 'puppeteerData@inlogData');
 Route::get('/reviewData', 'puppeteerData@reviewData');
+
+Route::post('/placeReview', 'puppeteerData@placeReview');
+Route::get('/placeReview', 'puppeteerData@placeReview');

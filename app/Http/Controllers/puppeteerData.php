@@ -26,6 +26,15 @@ class puppeteerData extends Controller
         $reviewData = review::all()->take(100);
         return inloggenRecourse::collection($reviewData);
     }
+    public function placeReview(Request $request)
+    {
+        $data = $request->getContent();
+        echo $data;
+        echo 'test';
+        // Moet server.js oproepen
+        // Guzzle
+        //server.get('/echo/formInvullen');
+    }
 
     public function postReview(Request $request)
     {

@@ -37,7 +37,7 @@
             },
 
             getReviews() {
-                axios.get('http://review-backend.test/echo/getReviews');
+                axios.get('http://review-backend.test/api/reviewData');
             },
             //add button
             changeStatus(id) {

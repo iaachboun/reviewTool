@@ -4,7 +4,7 @@
             <div class="reviewGedeelte">
                 <div v-for="data in reviews" class="goedkeuren" v-if="data.status === 1">
                     <p class="review-text" onclick='this.style.height = ""; this.style.height = this.scrollHeight + "px"'>{{data.review}}</p>
-                    <button class="btn blue" id="uploadReview" @click=" getPuppeteer(); changeStatus(data.id);">Plaats
+                    <button class="btn blue" id="uploadReview" @click=" getPuppeteer(data.review);/* changeStatus(data.id);*/">Plaats
                         review
                     </button>
                     <button class="btn red" @click="deleteFromPage(data.id)"><i class="fas fa-times"></i></button>
@@ -33,10 +33,20 @@
             getAantal() {
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
                 console.log(this.aantalReviews);
-                console.log('lol');
             },
-            getPuppeteer() {
-                axios.get('http://review-backend.test/echo/formInvullen');
+            getPuppeteer(place) {
+                axios.post('http://review-backend.test/api/placeReview', {place: place})
+                    .then(function (response) {
+                        console.log(place);
+                    })
+
+
+                /*axios.get('http://review-backend.test/api/reviewData/')
+                    .then(function (response) {
+                    console.log(response.data);
+                    console.log(response.status);
+                    console.log(id)
+                });*/
             },
             //delete button
             deleteFromPage(id) {
