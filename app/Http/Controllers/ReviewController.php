@@ -45,8 +45,4 @@ class ReviewController extends Controller
 
         }
     }
-
-    public function test()
-    {
-    }
 }
