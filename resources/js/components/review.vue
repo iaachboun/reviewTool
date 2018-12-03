@@ -24,18 +24,19 @@
         components: {
             'editReview': editReview,
         },
+
         data() {
             return {
-
+                aantalReviews: '',
                 data: [],
                 test: 'test',
             }
         },
+
         methods: {
             getAantal() {
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
             },
-
             getReviews() {
                 axios.get('http://review-backend.test/api/reviewData');
             },
@@ -60,6 +61,8 @@
         },
         mounted() {
             this.form.title = this.title;
+                axios.get('http://localhost:3306/echo/getReviews');
+            },
         },
 
         created() {
@@ -67,4 +70,3 @@
         },
     }
 </script>
-
