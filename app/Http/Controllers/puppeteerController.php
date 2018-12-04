@@ -2,22 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\inlogData;
 use Illuminate\Http\Request;
 use App\Http\Resources\inloggenRecourse;
 use App\review;
 
-class puppeteerData extends Controller
+class puppeteerController extends Controller
 {
-    /**
-     * gives fake data to ..
-     */
-    public function inlogData(Request $request)
-    {
-        $review = inlogData::all();
-        return inloggenRecourse::collection($review);
-    }
-
     /**
      * gives fake data to ..
      */
