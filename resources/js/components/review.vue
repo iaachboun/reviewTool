@@ -63,7 +63,6 @@
             this.form.title = this.title;
                 axios.get('http://localhost:3306/echo/getReviews');
             },
-        },
 
         created() {
             setTimeout(this.getAantal, 100);
