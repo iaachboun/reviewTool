@@ -42,3 +42,6 @@ Route::prefix('faker')->group(function () {
 
 Route::post('review', 'ReviewController@review');
 Route::get('review', 'ReviewController@test');
+
+Route::post('selectedreview', 'ReviewController@selectedreview');
+Route::get('selectedreview', 'ReviewController@selectedreview');

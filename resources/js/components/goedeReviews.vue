@@ -23,6 +23,13 @@
             },
 
             plaatsReview() {
+                axios.post('http://review-tool.test/api/selectedreview', { firstName: 'Marlon', lastName: 'Bernardes' })
+                    .then(function (response) {
+                        console.log(response.data);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
                 axios.get('http://localhost:3306/echo/formInvullen');
             },
 
