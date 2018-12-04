@@ -53,7 +53,9 @@ class puppeteerController extends Controller
     public function delete(Request $request, $id)
     {
         $review = review::where('id', $id)->first();
-        $review->delete();
+        $newReview = $request->all();
+        $review->status = $newReview{"status"};
+        $review->save();
         return response()->json(['message' => 'review updated']);
     }
 

@@ -22,6 +22,8 @@
 
     export default {
         name: "place-review"
+
+
     }
 </script>
 

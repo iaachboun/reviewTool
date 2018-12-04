@@ -5,7 +5,7 @@
         </div>
         <div class="center">
             <h1 class="center-title">Get more reviews<span class="gradient">?</span></h1>
-            <button @click="getReviews" class="button">Get more</button>
+            <button @click="makeReview" class="button">Get more</button>
         </div>
         <div class="centerData">
             <p class="amountReviews">Ongekeurde reviews: {{aantalReviews}}</p>
@@ -20,13 +20,13 @@
     import axios from "axios"
 
     export default {
-        props: ['reviews'],
         components: {
             'editReview': editReview,
         },
 
         data() {
             return {
+                reviews: [],
                 aantalReviews: '',
                 data: [],
                 test: 'test',
@@ -34,32 +34,25 @@
         },
 
         methods: {
+            //make review
+            makeReview() {
+                axios.get('http://localhost:8000/echo/getReviews');
+            },
+
+            getReviews() {
+                axios.get('http://review-tool.test/api/reviewData')
+                    .then(response => {
+                        const reviews = response.data.data.filter(item => item.review !== null);
+                        this.reviews = reviews;
+                    });
+            },
             getAantal() {
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
             },
 
-            getReviews() {
-                axios.get('http://localhost:3306/echo/getReviews');
-            },
-            //add button
-            changeStatus(id) {
-                this.$http.put(`http://review-tool.test/api/update/${id}`, {
-                    status: 1,
-                }).then(function () {
-                    location.reload();
-                });
-            },
-            //delete button
-            deleteFromPage(id) {
-                this.$http.put(`http://review-tool.test/api/update/${id}`, {
-                    review: 'deleted file',
-                    status: 2,
-                }).then(function () {
-                    this.data.splice();
-                });
-            }
         },
         mounted() {
+            this.getReviews();
             setTimeout(this.getAantal, 100);
         },
 

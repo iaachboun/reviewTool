@@ -38,7 +38,6 @@
                         console.log(place);
                     })
 
-
                 /*axios.get('http://review-backend.test/api/reviewData/')
                     .then(function (response) {
                     console.log(response.data);
@@ -52,6 +51,3 @@
         },
     }
 </script>
-<style>
-
-</style>

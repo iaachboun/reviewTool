@@ -1,7 +1,8 @@
 <template>
     <div>
         <div class="goedkeuren" v-if="data.review && data.status === 0">
-            <textarea v-model="form.title" id="reviewText" onclick='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
+            <textarea v-model="form.title" id="reviewText"
+                      onclick='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
                       class="review-text">{{data.review}}</textarea>
             <button class="btn green" @click="changeStatus(data.id)"><i class="fas fa-check"></i></button>
             <button class="btn red" @click="deleteFromPage(data.id)"><i class="fas fa-times"></i></button>
@@ -11,7 +12,7 @@
 
 <script>
     export default {
-        props: ['data'],
+        props: ['data', 'reviews'],
 
         data() {
             return {
@@ -23,7 +24,7 @@
             }
         },
 
-        methods:{
+        methods: {
             //saves edited review in database
             save() {
                 this.$emit('save', this.title)
@@ -36,14 +37,18 @@
                     status: 1,
                 }).then(function () {
                     this.save();
-                    location.reload();
+                    const saveReviewList = this.$parent.reviews.filter(review => review.id !== id);
+                    this.$parent.reviews = saveReviewList;
                 });
             },
+
             //delete button
             deleteFromPage(id) {
                 this.$http.put(`http://review-tool.test/api/delete/${id}`, {
+                    status: 2,
                 }).then(function () {
-                    location.reload()
+                    const newReviewList = this.$parent.reviews.filter(review => review.id !== id);
+                    this.$parent.reviews = newReviewList;
                 });
             }
         },

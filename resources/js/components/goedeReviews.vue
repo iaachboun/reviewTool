@@ -17,22 +17,20 @@
         props: ['data'],
 
         methods: {
-            //make review
-            makeReview() {
-                axios.get('http://localhost:3306/echo/getReviews');
-            },
-
             plaatsReview() {
-                axios.get('http://localhost:3306/echo/formInvullen');
+                axios.get('http://localhost:8000/echo/formInvullen').then(function () {
+                    const saveReviewList = this.$parent.reviews.filter(review => review.id !== id);
+                    this.$parent.reviews = saveReviewList;
+                });
             },
 
             //delete button
             deleteFromPage(id) {
-                this.$http.put(`http://review-tool.test/api/update/${id}`, {
-                    review: 'deleted file',
+                this.$http.put(`http://review-tool.test/api/delete/${id}`, {
                     status: 2,
                 }).then(function () {
-                    location.reload()
+                    const newReviewList = this.$parent.reviews.filter(review => review.id !== id);
+                    this.$parent.reviews = newReviewList;
                 });
             }
         }

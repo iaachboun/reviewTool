@@ -48,7 +48,7 @@
                 overflow: hidden;
             }
             a{
-                color: #ffffff;
+                color: $justWhite;
                 text-decoration: none;
             }
             li{
@@ -166,7 +166,7 @@
                 background-color: $lighterdarkGrey;
             }
             .center-title{
-                color: #ffffff;
+                color: $justWhite;
                 font-size: 22px;
                 font-weight: 400;
                 text-align: center;

@@ -37,9 +37,9 @@ class ReviewController extends Controller
                 DB::table('review')->insert(
                     ['review' => $data[$source][$i]]
                 );
-                DB::table('review')->insert(
+                /*DB::table('review')->insert(
                     ['source' => $source]
-                );
+                );*/
             }
             $source = $sources[$o];
 
