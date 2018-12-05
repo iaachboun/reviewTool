@@ -4,9 +4,7 @@
             <div v-for="data in reviews" class="goedkeuren" v-if="data.status === 1">
                 <goedeReviews v-bind:data="data"> hello</goedeReviews>
             </div>
-            <div class="centerData">
-                <p class="amountReviews">Gekeurde reviews: {{aantalReviews}}</p>
-            </div>
+            <p v-if="ifTrue" class="error">Er zijn geen reviews.<br>Ga naar Review toevoegen en klik rechts op GET MORE voor meer reviews</p>
         </div>
     </div>
 </template>
@@ -23,13 +21,17 @@
 
         data() {
             return {
+                ifTrue: false,
                 aantalReviews: 'test'
             }
         },
 
         methods: {
             getAantal() {
-                this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
+                var aantaldite = document.querySelectorAll('.goedkeuren').length
+                if (aantaldite < 1) {
+                    this.ifTrue = true;
+                }
             },
 
             getPuppeteer(place) {
@@ -46,8 +48,9 @@
                 });*/
             },
         },
-        mounted() {
+
+        created() {
             setTimeout(this.getAantal, 100)
-        },
+        }
     }
 </script>

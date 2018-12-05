@@ -13,7 +13,7 @@ class puppeteerController extends Controller
      */
     public function reviewData(Request $request)
     {
-        $reviewData = review::all()->take(100);
+        $reviewData = review::all();
         return inloggenRecourse::collection($reviewData);
     }
     public function placeReview(Request $request)

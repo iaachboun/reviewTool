@@ -86,10 +86,18 @@
                 transition: opacity 1s;
             }
     /*main css*/
+        .error{
+          color: $justWhite;
+          border-radius: 5px;
+          background-color: #3b3b3b;
+          text-align: center;
+          padding: 10px;
+          margin-top: 210px;
+        }
         .review-container{
             position: relative;
             width: 100%;
-            margin-top: 20px;
+            margin-top: 155px;
             color: $aBitOfGrey;
         }
         .reviewGedeelte{
@@ -118,34 +126,25 @@
             border: none;
         }
         /*Container css*/
-            .centerData, .legendaBox {
+            .legendaBox {
+                top: 280px;
                 color: white;
                 position: fixed;
-                right: 120%;
+                left: 82%;
                 margin-right: -50%;
                 -webkit-transform: translate(-50%, -45%);
                 transform: translate(-50%, -45%);
                 width: 250px;
-                height: 56px;
+                height: 74px;
                 border-radius: 5px;
                 background-color: $lighterdarkGrey;
                 text-align: center;
                 padding: 0 10px 0 10px;
             }
 
-            .centerData{
-              top: 250px;
-              height: 56px;
-            }
-
-            .legendaBox{
-              height: 74px;
-              top: 325px;
-            }
-
             .center{
                 position: fixed;
-                    top: 400px;
+                    top: 410px;
                     left: 82%;
                 margin-right: -50%;
                 transform: translate(-50%, -45%);

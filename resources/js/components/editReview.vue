@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="goedkeuren" v-if="data.review && data.status === 0">
-            <textarea v-model="form.title" id="reviewText"
+            <textarea v-model="data.review" id="reviewText"
                       onclick='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
                       class="review-text">{{data.review}}</textarea>
             <button class="btn green" @click="changeStatus(data.id)"><i class="fas fa-check"></i></button>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
     export default {
         props: ['data', 'reviews'],
 
@@ -25,20 +26,18 @@
         },
 
         methods: {
-            //saves edited review in database
-            save() {
-                this.$emit('save', this.title)
+            reFresh(){
+                this.$parent.getReviews();
             },
 
             //add button
             changeStatus(id) {
                 this.$http.put(`http://review-tool.test/api/update/${id}`, {
-                    review: this.form.title,
+                    review: this.data.review,
                     status: 1,
                 }).then(function () {
-                    this.save();
-                    const saveReviewList = this.$parent.reviews.filter(review => review.id !== id);
-                    this.$parent.reviews = saveReviewList;
+                    this.reFresh(id)
+
                 });
             },
 
@@ -47,13 +46,12 @@
                 this.$http.put(`http://review-tool.test/api/delete/${id}`, {
                     status: 2,
                 }).then(function () {
-                    const newReviewList = this.$parent.reviews.filter(review => review.id !== id);
-                    this.$parent.reviews = newReviewList;
+                    this.reFresh(id)
                 });
             }
         },
 
-        mounted() {
+        created() {
             this.form.title = this.title;
         },
     }
