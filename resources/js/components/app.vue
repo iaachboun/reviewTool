@@ -5,7 +5,7 @@
             <nav>
                 <ul>
                     <li>
-                        <router-link to="/" class="nav-item">Review plaatsen</router-link>
+                        <router-link to='/' class="nav-item">Review plaatsen</router-link>
                         <div class="hover_stripe"></div>
                     </li>
                     <li>
@@ -34,6 +34,11 @@
         },
 
         methods: {
+            reFresh() {
+                alert('does this work');
+                location.reload()
+            },
+
             getReviews() {
                 axios.get('http://review-tool.test/api/reviewData')
                     .then(response => {
@@ -41,6 +46,16 @@
                     });
             },
         },
+
+        //reloads alleen Review plaatsen wanneer je ernaar toe gaat
+        watch: {
+            '$route'(to) {
+                if (to.path === '/') {
+                    location.reload();
+                }
+            }
+        },
+
         mounted() {
             this.getReviews();
         },

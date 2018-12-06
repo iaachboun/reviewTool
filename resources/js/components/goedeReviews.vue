@@ -17,20 +17,25 @@
         props: ['data'],
 
         methods: {
+            //refreshed de reviews list zonder pagina te reloaden
+            reFresh(id){
+                const saveReviewList = this.$parent.reviews.filter(review => review.id !== id);
+                this.$parent.reviews = saveReviewList;
+            },
+
+            //gebruikt puppeteer script om de review te plaatsen
             plaatsReview() {
                 axios.get('http://localhost:8000/echo/formInvullen').then(function () {
-                    const saveReviewList = this.$parent.reviews.filter(review => review.id !== id);
-                    this.$parent.reviews = saveReviewList;
+                    this.reFresh()
                 });
             },
 
-            //delete button
+            //veranderd status van review zodat het uitgefilterd wordt
             deleteFromPage(id) {
                 this.$http.put(`http://review-tool.test/api/delete/${id}`, {
                     status: 2,
                 }).then(function () {
-                    const newReviewList = this.$parent.reviews.filter(review => review.id !== id);
-                    this.$parent.reviews = newReviewList;
+                    this.reFresh(id)
                 });
             }
         }
