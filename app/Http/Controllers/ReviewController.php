@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use illuminate\Database\Connection;
-
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 use App\review;
 use Response;
@@ -44,5 +45,17 @@ class ReviewController extends Controller
             $source = $sources[$o];
 
         }
+    }
+    public function selectedreview(Request $request)
+    {
+        $client = new Client(['base_uri' => 'http://192.168.19.1:3306/']);
+        $data = $request->all();
+        //var_dump($data);
+        $response = $client->request('POST', 'echo/formInvullen', [
+            'json' => ['data' => $data]
+        ]);
+
+        return json_decode($response->getBody()->getContents(), true);
+
     }
 }

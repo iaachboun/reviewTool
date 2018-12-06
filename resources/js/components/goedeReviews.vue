@@ -17,25 +17,29 @@
         props: ['data'],
 
         methods: {
-            //refreshed de reviews list zonder pagina te reloaden
-            reFresh(id){
-                const saveReviewList = this.$parent.reviews.filter(review => review.id !== id);
-                this.$parent.reviews = saveReviewList;
+            //make review
+            makeReview() {
+                axios.get('http://localhost:3306/echo/getReviews');
             },
 
-            //gebruikt puppeteer script om de review te plaatsen
             plaatsReview() {
-                axios.get('http://localhost:8000/echo/formInvullen').then(function () {
-                    this.reFresh()
-                });
+                axios.post('http://review-tool.test/api/selectedreview', { firstName: 'Marlon', lastName: 'Bernardes' })
+                    .then(function (response) {
+                        console.log(response.data);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                axios.get('http://localhost:3306/echo/formInvullen');
             },
 
-            //veranderd status van review zodat het uitgefilterd wordt
+            //delete button
             deleteFromPage(id) {
-                this.$http.put(`http://review-tool.test/api/delete/${id}`, {
+                this.$http.put(`http://review-tool.test/api/update/${id}`, {
+                    review: 'deleted file',
                     status: 2,
                 }).then(function () {
-                    this.reFresh(id)
+                    location.reload()
                 });
             }
         }
