@@ -11,13 +11,12 @@ class puppeteerController extends Controller
     /**
      * gives fake data to ..
      */
-    public function reviewData(Request $request)
-    {
+    public function reviewData(Request $request){
         $reviewData = review::all();
         return inloggenRecourse::collection($reviewData);
     }
-    public function placeReview(Request $request)
-    {
+
+    public function placeReview(Request $request){
         $data = $request->getContent();
         echo $data;
         echo 'test';
@@ -26,8 +25,7 @@ class puppeteerController extends Controller
         //server.get('/echo/formInvullen');
     }
 
-    public function postReview(Request $request)
-    {
+    public function postReview(Request $request){
         $data = $request->getContent();
         $dataex = json_decode($data, true);
 
@@ -40,8 +38,7 @@ class puppeteerController extends Controller
         return $dataex;
     }
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $review = review::where('id', $id)->first();
         $newReview = $request->all();
         $review->review = $newReview{"review"};
@@ -50,13 +47,12 @@ class puppeteerController extends Controller
         return response()->json(['message' => 'review updated']);
     }
 
-    public function delete(Request $request, $id)
-    {
+    public function delete(Request $request, $id){
         $review = review::where('id', $id)->first();
         $newReview = $request->all();
         $review->status = $newReview{"status"};
         $review->save();
         return response()->json(['message' => 'review updated']);
     }
-
 }
+

@@ -3,9 +3,7 @@
         <p class="review-text"
            onclick='this.style.height = ""; this.style.height = this.scrollHeight + "px"'>
             {{data.review}}</p>
-        <button class="btn blue" id="uploadReview" @click="plaatsReview">Plaats
-            review
-        </button>
+        <button class="btn blue" id="uploadReview" @click="plaatsReview(data.review)">Plaats review</button>
         <button class="btn red" @click="deleteFromPage(data.id)"><i class="fas fa-times"></i></button>
     </div>
 </template>
@@ -17,20 +15,25 @@
         props: ['data'],
 
         methods: {
-            //make review
+            reFresh(id) {
+                const saveReviewList = this.$parent.reviews.filter(review => review.id !== id);
+                this.$parent.reviews = saveReviewList;
+            },
+
+            //make reviews
             makeReview() {
                 axios.get('http://localhost:3306/echo/getReviews');
             },
 
-            plaatsReview() {
-                axios.post('http://review-tool.test/api/selectedreview', { firstName: 'Marlon', lastName: 'Bernardes' })
+            plaatsReview(review) {
+                console.log(review);
+                axios.post(`http://review-tool.test/api/selectedReview`, { review })
                     .then(function (response) {
-                        console.log(response.data);
+                        console.log(response.data)
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
-                axios.get('http://localhost:3306/echo/formInvullen');
             },
 
             //delete button
@@ -39,7 +42,7 @@
                     review: 'deleted file',
                     status: 2,
                 }).then(function () {
-                    location.reload()
+                    this.reFresh(id)
                 });
             }
         }

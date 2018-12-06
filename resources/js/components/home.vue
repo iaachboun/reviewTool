@@ -28,7 +28,7 @@
 
         methods: {
             getAantal() {
-                var aantaldite = document.querySelectorAll('.goedkeuren').length
+                var aantaldite = document.querySelectorAll('.goedkeuren').length;
                 if (aantaldite < 1) {
                     this.ifTrue = true;
                 }

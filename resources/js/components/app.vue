@@ -5,7 +5,7 @@
             <nav>
                 <ul>
                     <li>
-                        <router-link to='/' class="nav-item">Review plaatsen</router-link>
+                        <a href='/' class="nav-item">Review plaatsen</a>
                         <div class="hover_stripe"></div>
                     </li>
                     <li>
