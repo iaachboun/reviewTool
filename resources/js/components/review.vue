@@ -47,9 +47,17 @@
             },
 
             getReviews() {
-                axios.get('http://localhost:3306/echo/getReviews');
+                axios.get('http://review-tool.test/api/reviewData')
+                    .then(response => {
+                        const reviews = response.data.data.filter(item => item.review !== null && item.status === 0);
+                        this.reviews = reviews;
+                    });
             },
-        
+
+            makeReviews() {
+                axios.get('http://localhost:3306/echo/getReviews')
+            },
+
             //add button
             changeStatus(id) {
                 this.$http.put(`http://review-tool.test/api/update/${id}`, {
@@ -63,13 +71,15 @@
                 this.$http.put(`http://review-tool.test/api/update/${id}`, {
                     review: 'deleted file',
                     status: 2,
+                }).then(function () {
+                    this.data.splice();
                 });
             }
         },
         mounted() {
             this.getReviews();
-            },
-    
+        },
+
 
     }
 </script>
