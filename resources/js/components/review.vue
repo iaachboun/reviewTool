@@ -8,12 +8,6 @@
             <h1 class="center-title">Get more reviews<span class="gradient">?</span></h1>
             <button @click="getReviews" class="button">Get more</button>
         </div>
-        <div class="centerData">
-            <p class="amountReviews">Ongekeurde reviews: {{aantalReviews}}</p>
-        </div>
-        <div class="legendaBox">
-            <p class="legenda">Klik op een review om alles te zien of om het te bewerken</p>
-        </div>
     </div>
 </template>
 <script>
