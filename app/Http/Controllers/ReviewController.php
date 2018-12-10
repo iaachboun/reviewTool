@@ -48,10 +48,10 @@ class ReviewController extends Controller
     }
     public function selectedreview(Request $request)
     {
-        $client = new Client(['base_uri' => 'http://192.168.19.1:3306/']);
+        $client = new Client(['base_uri' => 'http://192.168.19.1:9991/']);
         $data = $request->all();
         //var_dump($data);
-        $response = $client->request('POST', 'echo/formInvullen', [
+        $response = $client->post('echo/formInvullen', [
             'json' => ['data' => $data]
         ]);
 
