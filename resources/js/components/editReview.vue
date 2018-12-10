@@ -19,9 +19,6 @@
             return {
                 title: this.data.review,
                 aantalReviews: '',
-                form: {
-                    title: ''
-                }
             }
         },
 
@@ -49,10 +46,6 @@
                     this.reFresh(id)
                 });
             }
-        },
-
-        created() {
-            this.form.title = this.title;
         },
     }
 </script>
