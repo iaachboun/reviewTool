@@ -3,7 +3,7 @@
         <p class="review-text"
            onclick='this.style.height = ""; this.style.height = this.scrollHeight + "px"'>
             {{data.review}}</p>
-        <button class="btn blue" id="uploadReview" @click="plaatsReview">Plaats
+        <button class="btn blue" id="uploadReview" @click="plaatsReview()">Plaats
             review
         </button>
         <button class="btn red" @click="deleteFromPage(data.id)"><i class="fas fa-times"></i></button>
@@ -11,33 +11,40 @@
 </template>
 
 <script>
-    import axios from "axios"
 
+    import axios from "axios"
+    //console.log(data.review);
     export default {
         props: ['data'],
 
         methods: {
-            //refreshed de reviews list zonder pagina te reloaden
-            reFresh(id){
-                const saveReviewList = this.$parent.reviews.filter(review => review.id !== id);
-                this.$parent.reviews = saveReviewList;
+            //make review
+            makeReview() {
+                axios.get('http://localhost:3306/echo/getReviews');
             },
 
-            //gebruikt puppeteer script om de review te plaatsen
             plaatsReview() {
-                axios.get('http://localhost:8000/echo/formInvullen').then(function () {
-                    this.reFresh()
-                });
+                axios.post('http://review-tool.test/api/selectedreview', { review: this.data.review })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                axios.get('http://localhost:9991/echo/formInvullen');
             },
 
-            //veranderd status van review zodat het uitgefilterd wordt
+            //delete button
             deleteFromPage(id) {
-                this.$http.put(`http://review-tool.test/api/delete/${id}`, {
+                this.$http.put(`http://review-tool.test/api/update/${id}`, {
+                    review: 'deleted file',
                     status: 2,
                 }).then(function () {
-                    this.reFresh(id)
+                    location.reload()
                 });
             }
+        },
+        mounted() {
         }
     }
 </script>

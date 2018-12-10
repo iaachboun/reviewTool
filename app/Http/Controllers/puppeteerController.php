@@ -36,7 +36,6 @@ class puppeteerController extends Controller
         $review->status = 0;
         $review->source = $dataex["source"];
         $review->save();
-
         return $dataex;
     }
 
