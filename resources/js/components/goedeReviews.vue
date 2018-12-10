@@ -3,7 +3,7 @@
         <p class="review-text"
            onclick='this.style.height = ""; this.style.height = this.scrollHeight + "px"'>
             {{data.review}}</p>
-        <button class="btn blue" id="uploadReview" @click="plaatsReview">Plaats
+        <button class="btn blue" id="uploadReview" @click="plaatsReview()">Plaats
             review
         </button>
         <button class="btn red" @click="deleteFromPage(data.id)"><i class="fas fa-times"></i></button>
@@ -11,8 +11,9 @@
 </template>
 
 <script>
-    import axios from "axios"
 
+    import axios from "axios"
+    //console.log(data.review);
     export default {
         props: ['data'],
 
@@ -23,9 +24,9 @@
             },
 
             plaatsReview() {
-                axios.post('http://review-tool.test/api/selectedreview', { firstName: 'Marlon', lastName: 'Bernardes' })
+                axios.post('http://review-tool.test/api/selectedreview', { review: this.data.review })
                     .then(function (response) {
-                        console.log(response.data);
+                        console.log(response);
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -42,6 +43,8 @@
                     location.reload()
                 });
             }
+        },
+        mounted() {
         }
     }
 </script>
