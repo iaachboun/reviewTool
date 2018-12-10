@@ -45,13 +45,12 @@ class ReviewController extends Controller{
         }
     }
 
-    public function selectedReview(Request $request){
-
-
+    public function selectedreview(Request $request){
         $client = new Client(['base_uri' => env('PUPPETEER_URL')]);
+        $data = $request->all();
         //var_dump($data);
-        $response = $client->request('POST', 'echo/formInvullen', [
-            'json' => ['data' => $request->all()]
+        $response = $client->post('echo/formInvullen', [
+            'json' => ['data' => $data]
         ]);
 
         dd(json_decode($response->getBody()->getContents(), true));
