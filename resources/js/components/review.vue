@@ -1,18 +1,15 @@
 <template>
     <div class="review-container">
-        <div class="reviewGedeelte" v-for="data in reviews">
-            <editReview v-bind:data="data"></editReview>
+        <div class="reviewGedeelte">
+           <editReview v-if="reviews.length > 0" v-bind:data="firstItem"></editReview>
+            <p v-else class="error">Er zijn geen reviews , klik rechts op GET MORE voor meer reviews</p>
         </div>
         <div class="center">
             <h1 class="center-title">Get more reviews<span class="gradient">?</span></h1>
-<<<<<<< HEAD
-            <button @click="makeReviews" class="button">Get more</button>
-=======
             <button @click="getReviews" class="button">Get more</button>
         </div>
         <div class="centerData">
             <p class="amountReviews">Ongekeurde reviews: {{aantalReviews}}</p>
->>>>>>> a0d30fd8682dd49317bce8176f5074d32e9ed367
         </div>
         <div class="legendaBox">
             <p class="legenda">Klik op een review om alles te zien of om het te bewerken</p>
@@ -37,6 +34,7 @@
 
         data() {
             return {
+                reviews: [],
                 aantalReviews: '',
                 data: [],
                 test: 'test',
