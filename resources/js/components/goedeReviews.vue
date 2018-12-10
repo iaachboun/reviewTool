@@ -22,15 +22,11 @@
 
             //make reviews
             makeReview() {
-                axios.get('http://localhost:3306/echo/getReviews');
+                axios.get('http://localhost:8800/echo/getReviews');
             },
 
             plaatsReview(review) {
-                console.log(review);
-                axios.post(`http://review-tool.test/api/selectedReview`, { review })
-                    .then(function (response) {
-                        console.log(response.data)
-                    })
+                axios.post(`http://review-tool.test/api/selectedReview`, {review})
                     .catch(function (error) {
                         console.log(error);
                     });
