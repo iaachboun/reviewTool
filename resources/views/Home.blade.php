@@ -17,8 +17,9 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div id="app"></div>
-
+        
         <script src="../js/app.js" async defer></script>
-
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="../js/websok.js"></script>
     </body>
 </html>

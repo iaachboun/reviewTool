@@ -6,7 +6,7 @@
         </div>
         <div class="center">
             <h1 class="center-title">Get more reviews<span class="gradient">?</span></h1>
-            <button @click="getReviews" class="button">Get more</button>
+            <button @click="makeReviews" class="button">Get more</button>
         </div>
     </div>
 </template>
@@ -49,7 +49,7 @@
             },
 
             makeReviews() {
-                axios.get('http://localhost:3306/echo/getReviews')
+                axios.get('http://localhost:9991/echo/getReviews')
             },
 
             //add button
@@ -71,7 +71,7 @@
             }
         },
         mounted() {
-            this.getReviews();
+            setTimeout(this.getReviews,500); 
         },
 
 

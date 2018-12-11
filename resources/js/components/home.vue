@@ -1,5 +1,6 @@
 <template>
     <div>
+        <img class="captcha" id="img" src="">
         <div class="reviewGedeelte">
             <div v-for="data in reviews" class="goedkeuren" v-if="data.status === 1">
                 <goedeReviews v-bind:data="data"> hello</goedeReviews>
