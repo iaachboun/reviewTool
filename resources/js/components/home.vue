@@ -5,7 +5,8 @@
             <div v-for="data in reviews" class="goedkeuren" v-if="data.status === 1">
                 <goedeReviews v-bind:data="data"></goedeReviews>
             </div>
-            <p v-if="ifTrue" class="error">Er zijn geen reviews.<br>Ga naar Review toevoegen en klik rechts op GET MORE voor meer reviews</p>
+            <p v-if="ifTrue" class="error">Er zijn geen reviews.<br>Ga naar Review toevoegen en klik rechts op GET MORE
+                voor meer reviews</p>
         </div>
     </div>
 </template>
@@ -53,7 +54,7 @@
         },
 
         created() {
-            setTimeout(this.getAantal, 100)
-        }
+            setTimeout(this.getAantal, 1000)
+        },
     }
 </script>

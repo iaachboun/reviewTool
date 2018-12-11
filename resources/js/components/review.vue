@@ -40,8 +40,6 @@
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
             },
 
-
-
             getReviews() {
                 axios.get('http://review-tool.test/api/reviewData')
                     .then(response => {
@@ -58,24 +56,19 @@
             changeStatus(id) {
                 this.$http.put(`http://review-tool.test/api/update/${id}`, {
                     status: 1,
-                }).then(function () {
-                    location.reload();
                 });
             },
+
             //delete button
             deleteFromPage(id) {
                 this.$http.put(`http://review-tool.test/api/update/${id}`, {
                     review: 'deleted file',
                     status: 2,
-                }).then(function () {
-                    this.data.splice();
                 });
             }
         },
         mounted() {
-            setTimeout(this.getReviews,1000);
+            this.getReviews();
         },
-
-
     }
 </script>

@@ -56,7 +56,7 @@
             }
         },
 
-        mounted() {
+        created() {
             this.getReviews();
         },
     }

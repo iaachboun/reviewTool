@@ -3,13 +3,14 @@
         <p class="review-text"
            onclick='this.style.height = ""; this.style.height = this.scrollHeight + "px"'>
             {{data.review}}</p>
-        <button class="btn blue" id="uploadReview" @click="plaatsReview()">Plaats review</button>
+        <button class="btn blue" id="uploadReview" @click=" plaatsReview()">Plaats review</button>
         <button class="btn red" @click="deleteFromPage(data.id)"><i class="fas fa-times"></i></button>
     </div>
 </template>
 
 <script>
     import axios from "axios"
+    import { goTrue } from '../events/events';
 
     export default {
         props: ['data'],
@@ -21,7 +22,10 @@
             },
 
             plaatsReview() {
-                axios.post('http://review-tool.test/api/selectedreview', { review: this.data.review })
+                goTrue.$emit('recaptcha', {
+                    hallo: "world"
+                });
+                axios.post('http://review-tool.test/api/selectedreview', {review: this.data.review})
                     .then(function (response) {
                         console.log(response);
                     })
@@ -30,7 +34,6 @@
                     });
                 axios.get('http://localhost:9991/echo/formInvullen');
             },
-
 
             //delete button
             deleteFromPage(id) {
@@ -41,6 +44,7 @@
                     this.reFresh(id)
                 });
             }
-        }
+        },
+
     }
 </script>
