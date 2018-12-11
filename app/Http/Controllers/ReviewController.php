@@ -53,7 +53,7 @@ class ReviewController extends Controller{
             'json' => ['data' => $data , 'user' => ['firstname' => 'naam']]
         ]);
 
-        dd(json_decode($response->getBody()->getContents(), true));
+        //dd(json_decode($response->getBody()->getContents(), true));
         return json_decode($response->getBody()->getContents(), true);
     }
 }
