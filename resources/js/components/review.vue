@@ -40,6 +40,8 @@
                 this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
             },
 
+
+
             getReviews() {
                 axios.get('http://review-tool.test/api/reviewData')
                     .then(response => {
@@ -71,7 +73,7 @@
             }
         },
         mounted() {
-            this.getReviews();
+            setTimeout(this.getReviews,500);
         },
 
 

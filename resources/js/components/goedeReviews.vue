@@ -20,11 +20,6 @@
                 this.$parent.reviews = saveReviewList;
             },
 
-            //make reviews
-            makeReview() {
-                axios.get('http://localhost:3306/echo/getReviews');
-            },
-
             plaatsReview() {
                 axios.post('http://review-tool.test/api/selectedreview', { review: this.data.review })
                     .then(function (response) {
