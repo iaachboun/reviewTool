@@ -16,10 +16,10 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+
         <div id="app"></div>
 
         <script src="../js/app.js" async defer></script>
-        <script src="/socket.io/socket.io.js"></script>
-
     </body>
 </html>

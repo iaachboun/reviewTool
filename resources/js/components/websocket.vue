@@ -20,10 +20,8 @@
         methods: {
             websocket() {
                 //make connections
-                var socket = io.connect('http://localhost:4000');
+                var socket = io('http://localhost:9991',{transports: ['websocket'], upgrade: false});
                 //quiry DOM
-                var field = document.getElementById('field');
-                var btn = document.getElementById('btn');
                 var img = document.getElementById('img');
 
                 socket.on('img-chunk', function (chunk) {
@@ -53,9 +51,12 @@
 
                 //listen
                 socket.on('chat', function (data) {
-                    field.innerHTML = '<h1>' + data.x + ',' + data.y + '</h1>';
+                    img.innerHTML = '<h1>' + data.x + ',' + data.y + '</h1>';
                 });
             }
+        },
+        created(){
+            this.websocket();
         }
     }
 </script>
