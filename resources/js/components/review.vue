@@ -73,7 +73,7 @@
             }
         },
         mounted() {
-            setTimeout(this.getReviews,500);
+            setTimeout(this.getReviews,1000);
         },
 
 
