@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import io from 'socket.io-client';
     export default {
         data() {
             return {
@@ -20,7 +21,7 @@
         methods: {
             websocket() {
                 //make connections
-                var socket = io('http://localhost:9991',{transports: ['websocket'], upgrade: false});
+                var socket = io('//127.0.0.1:9991',{transports: ['websocket'], upgrade: false});
                 //quiry DOM
                 var img = document.getElementById('img');
 
