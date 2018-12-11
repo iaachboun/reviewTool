@@ -1,8 +1,9 @@
 <template>
     <div>
+        <websocket></websocket>
         <div class="reviewGedeelte">
             <div v-for="data in reviews" class="goedkeuren" v-if="data.status === 1">
-                <goedeReviews v-bind:data="data"> hello</goedeReviews>
+                <goedeReviews v-bind:data="data"></goedeReviews>
             </div>
             <p v-if="ifTrue" class="error">Er zijn geen reviews.<br>Ga naar Review toevoegen en klik rechts op GET MORE voor meer reviews</p>
         </div>
@@ -10,12 +11,14 @@
 </template>
 
 <script>
+    import websocket from "../components/websocket"
     import goedeReviews from "../components/goedeReviews"
     import axios from "axios"
 
     export default {
         props: ['reviews'],
         components: {
+            'websocket': websocket,
             'goedeReviews': goedeReviews,
         },
 

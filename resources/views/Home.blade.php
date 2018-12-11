@@ -19,6 +19,6 @@
         <div id="app"></div>
 
         <script src="../js/app.js" async defer></script>
-
+        <script src="/socket.io/socket.io.js"></script>
     </body>
 </html>

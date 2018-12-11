@@ -16,8 +16,6 @@ const routes = [
 
 const router = new VueRouter({
     routes: routes
-
-
 });
 
 new Vue({
