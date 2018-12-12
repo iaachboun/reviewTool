@@ -28,7 +28,7 @@
                     .catch(function (error) {
                         console.log(error);
                     });
-                axios.get('http://localhost:9991/echo/formInvullen');
+                axios.get('http://192.168.87.86:9991/echo/formInvullen');
             },
 
 

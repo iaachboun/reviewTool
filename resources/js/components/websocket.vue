@@ -21,7 +21,7 @@ import io from 'socket.io-client';
         methods: {
             websocket() {
                 //make connections
-                var socket = io('//127.0.0.1:9991',{transports: ['websocket'], upgrade: false});
+                var socket = io('//192.168.87.86:9991',{transports: ['websocket'], upgrade: false});
                 //quiry DOM
                 var img = document.getElementById('img');
 
@@ -29,6 +29,11 @@ import io from 'socket.io-client';
                     this.imgchunks.push(chunk);
                     img.setAttribute('src', 'data:image/png;base64,' + chunk.buffer);
                 });
+
+                socket.on('test', (data) => {
+                    console.log("Hallo?");
+                    console.log(data);
+                })
 
                 //emit events
                 img.addEventListener('click', function () {
