@@ -25,6 +25,8 @@
                 goTrue.$emit('recaptcha', {
                     hallo: "world"
                 });
+                axios.get('http://review-tool.test/api/vulIn');
+
                 axios.post('http://review-tool.test/api/selectedreview', {review: this.data.review})
                     .then(function (response) {
                         console.log(response);
@@ -32,7 +34,6 @@
                     .catch(function (error) {
                         console.log(error);
                     });
-                axios.get('http://localhost:9991/echo/formInvullen');
             },
 
             //delete button

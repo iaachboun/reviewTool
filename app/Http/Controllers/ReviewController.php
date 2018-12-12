@@ -56,4 +56,5 @@ class ReviewController extends Controller{
         dd(json_decode($response->getBody()->getContents(), true));
         return json_decode($response->getBody()->getContents(), true);
     }
+
 }

@@ -53,5 +53,11 @@ class puppeteerController extends Controller
         $review->save();
         return response()->json(['message' => 'review updated']);
     }
+
+    public function formInvullen(Request $request ){
+        $client = new Client(['base_uri' => env('PUPPETEER_URL')]);
+        $response = $client->post('echo/formInvullen');
+        return $response;
+    }
 }
 
