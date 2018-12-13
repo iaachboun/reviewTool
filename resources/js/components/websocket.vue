@@ -33,14 +33,14 @@
                     this.imgchunks.push(chunk);
                     img.setAttribute('src', 'data:image/png;base64,' + chunk.buffer);
                 });
-                // this.coordinaten(img);
+                this.coordinaten(img);
                 //listen
                 socket.on('chat', function (data) {
                     field.innerHTML = '<h1>' + data.x + ',' + data.y + '</h1>';
                 });
             },
 
-            /*coordinaten(img) {
+            coordinaten(img) {
                 //emit events
                 img.addEventListener('click', function () {
                     this.x = event.clientX;
@@ -60,7 +60,7 @@
                         y: this.y
                     });
                 });
-            }*/
+            }
         },
         mounted() {
             this.websocket();
