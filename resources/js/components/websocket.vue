@@ -24,7 +24,7 @@
         methods: {
             websocket() {
                 //make connections
-                var socket = io('//192.168.87.86:9991', {transports: ['websocket'], upgrade: false});
+                var socket = io(  `//192.168.87.86:9991`, {transports: ['websocket'], upgrade: false});
                 //quiry DOMs
                 var img = document.getElementById('img');
                 var field = document.getElementById('field');
