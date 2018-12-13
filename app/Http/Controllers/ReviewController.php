@@ -52,8 +52,6 @@ class ReviewController extends Controller{
         $response = $client->post('echo/formInvullen', [
             'json' => ['data' => $data , 'user' => ['firstname' => 'naam']]
         ]);
-
-        dd(json_decode($response->getBody()->getContents(), true));
         return json_decode($response->getBody()->getContents(), true);
     }
 
