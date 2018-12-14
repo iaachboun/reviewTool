@@ -12,6 +12,10 @@
                         <router-link to="/review" class="nav-item">Review toevoegen</router-link>
                         <div class="hover_stripe"></div>
                     </li>
+                    <li>
+                        <a href="/logout" to="/review" class="nav-item">Log out</a>
+                        <div class="hover_stripe"></div>
+                    </li>
                 </ul>
             </nav>
         </header>

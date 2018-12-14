@@ -328,7 +328,7 @@
                 }
                 #formRegister {
                     display: grid;
-                    margin-top: 6rem;
+                    margin-top: 0rem;
                 }
                 .form-group {
                     justify-content: center;
@@ -344,4 +344,19 @@
                 }
                 .col-md-6 {
                     width: 320px;
+                }
+                #loginBtn {
+                    margin-left: -6rem;
+                }
+                .container {
+                    color: white;
+                }
+                .nav-link {
+                    float: right;
+                    margin-top: 1.5rem;
+                    margin-right: 2rem;
+                }
+                #registerBtn {
+                    margin-left: 3rem;
+                    margin-top: 1rem;
                 }

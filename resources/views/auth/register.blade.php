@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    <header>
+        <a href="#/" class="title router-link-exact-active router-link-active">Review tool</a>
+        <a class="nav-link" href="http://review-tool.test/login">Log in</a>
+    </header>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -63,7 +67,7 @@
 
                         <div class="form-group row mb-0">
                             <div id="loginBtn" class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn blue">
+                                <button type="submit" class="btn blue" id="registerBtn">
                                     {{ __('Register') }}
                                 </button>
                             </div>
