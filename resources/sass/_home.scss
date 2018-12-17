@@ -251,3 +251,116 @@
                 #uploadReview{
                     width: 50%;
                 }
+                .notLoggedInContainer {
+                    display: grid;
+                    grid-template-columns: 40% auto 40%;
+                    grid-template-rows: 50px 50px 50px 100px;
+                    color: white;
+                    margin: 0 auto;
+                }
+                #notLoggedIn1 {
+                    display: grid;
+                    grid-column: 2;
+                    grid-row: 3;
+                }
+                #notLoggedIn {
+                    display: grid;
+                    grid-column: 2;
+                    grid-row: 3;
+                    text-align: center;
+                    font-size: 1.5rem;
+                    line-height: 10px;
+                }
+                #notLoggedIn3 {
+                    display: grid;
+                    width: 10px;
+                    grid-column: 1;
+                    grid-row: 1;
+                }
+                #notLoggedIn4 {
+                    display: grid;
+                    align-items: center;
+                    grid-column: 2;
+                    grid-row: 4;
+                    text-align: center;
+                    line-height: 40px;
+                }
+                #hideForNow {
+                    display: none;
+                }
+                #heightForGrid {
+                    height: 650px;
+                }
+                #logInFrm {
+                    margin-top: -9rem;
+                    display: grid;
+                    justify-content: center;
+                    grid-template-columns: auto auto auto;
+                    grid-template-rows: 50px 49px 24.5px 14px;
+                    color: white;
+                    height: 300px;
+                    grid-row-gap: 15px;
+                }
+                #logInFrm1 {
+                    display: grid;
+                    grid-column: 2;
+                    grid-row: 1;
+                }
+                #logInFrm2 {
+                    display: grid;
+                    grid-column: 2;
+                    grid-row: 2;
+                }
+                #logInFrm3 {
+                    display: grid;
+                    grid-column: 2;
+                    grid-row: 3;
+                }
+                #logInFrm4 {
+                    display: grid;
+                    grid-column: 2;
+                    grid-row: 4;
+                    margin-left: -49%;
+                }
+                #email {
+                    padding: -21px;
+                    margin: 0;
+                }
+                #formRegister {
+                    display: grid;
+                    margin-top: 0rem;
+                }
+                .form-group {
+                    justify-content: center;
+                    display: grid;
+                    margin-top: 1rem;
+                }
+                #headerID {
+                    position: absolute;
+                    z-index: -1;
+                }
+                title {
+                    width: 100px;
+                }
+                .col-md-6 {
+                    width: 320px;
+                }
+                #loginBtn {
+                    margin-left: -6rem;
+                }
+                .container {
+                    color: white;
+                    margin-top: 6rem;
+                }
+                .nav-link {
+                    float: right;
+                    margin-top: 1.5rem;
+                    margin-right: 2rem;
+                }
+                #registerBtn {
+                    margin-left: 3rem;
+                    margin-top: 1rem;
+                }
+                #laravelContainer {
+                    display: none;
+                }

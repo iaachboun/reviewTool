@@ -2,7 +2,6 @@
     <div>
         <div id="websocket">
             <div id="field"></div>
-            <img id="img" src="">
         </div>
     </div>
 </template>
@@ -14,12 +13,19 @@
     export default {
         data() {
             return {
+                websocket: " ",
                 imgchunks: [],
                 x: 0,
                 y: 0,
                 show: false
             }
         },
+        /*watch:{
+            watch: function () {
+                this.websocket();
+            }
+
+        },*/
 
         methods: {
             websocket() {
@@ -33,7 +39,7 @@
                     this.imgchunks.push(chunk);
                     img.setAttribute('src', 'data:image/png;base64,' + chunk.buffer);
                 });
-                this.coordinaten(img);
+                this.coordinaten(img,socket);
                 //listen
                 socket.on('chat',  (data) => {
                     field.innerHTML = '<h1>' + data.x + ',' + data.y + '</h1>';

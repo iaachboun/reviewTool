@@ -11,4 +11,28 @@
 |
 */
 
-Route::get('/', 'BaseController@index');
+//Auth::routes();
+//Route::get('/', 'BaseController@index');
+
+//Route::get('login', 'BaseController@login')->name('login');
+
+
+//Route::get('/home', 'HomeController@index')->name('home');
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
