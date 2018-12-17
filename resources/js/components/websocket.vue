@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div v-if="show" id="websocket">
+        <div id="websocket">
             <div id="field"></div>
-            <img id="img" src="" alt=" Websocket/reCaptcha">
+            <img id="img" src="">
         </div>
     </div>
 </template>
@@ -31,7 +31,7 @@
 
                 socket.on('img-chunk', function (chunk) {
                     this.imgchunks.push(chunk);
-                    img.setAttribute('src', 'data:image/png;base64,' + chunk.buffer);
+                    img.setAttribute('src="', 'data:image/png;base64,' + chunk.buffer + '"');
                 });
                 this.coordinaten(img);
                 //listen
@@ -63,9 +63,9 @@
             }
         },
         mounted() {
-            this.websocket();
             goTrue.$on('recaptcha', (bool) => {
                 this.show = true;
+                this.websocket();
             })
         }
     }

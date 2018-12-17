@@ -19,8 +19,6 @@
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script> -->
 
         <div id="app"></div>
-        <img id="img" src="" alt=" Websocket/reCaptcha">
-
 
         <script src="../js/app.js" async defer></script>
     </body>
