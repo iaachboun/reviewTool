@@ -35,7 +35,6 @@
 
         methods: {
             reFresh() {
-                alert('does this work');
                 location.reload()
             },
 

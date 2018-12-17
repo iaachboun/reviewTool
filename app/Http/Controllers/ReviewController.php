@@ -41,7 +41,6 @@ class ReviewController extends Controller{
                 );*/
             }
             $source = $sources[$o];
-
         }
     }
 
