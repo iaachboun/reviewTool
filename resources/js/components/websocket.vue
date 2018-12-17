@@ -29,36 +29,21 @@
                 var img = document.getElementById('img');
                 var field = document.getElementById('field');
 
-                socket.on('img-chunk', function (chunk) {
+                socket.on('img-chunk',  (chunk) => {
                     this.imgchunks.push(chunk);
-                    img.setAttribute('src="', 'data:image/png;base64,' + chunk.buffer + '"');
+                    img.setAttribute('src', 'data:image/png;base64,' + chunk.buffer);
                 });
                 this.coordinaten(img);
                 //listen
-                socket.on('chat', function (data) {
+                socket.on('chat',  (data) => {
                     field.innerHTML = '<h1>' + data.x + ',' + data.y + '</h1>';
                 });
             },
 
             coordinaten(img) {
-                //emit events
-                img.addEventListener('click', function () {
-                    this.x = event.clientX;
-                    console.log(x);
-                    this.y = event.clientY;
-                    console.log(y);
-
-                    this.socket.emit('chat', {
-                        x: this.x,
-                        y: this.y
-                    });
-                });
-
-                img.addEventListener('click', function () {
-                    socket.emit('click', {
-                        x: this.x,
-                        y: this.y
-                    });
+                this.socket.emit('click', {
+                    x: this.x,
+                    y: this.y
                 });
             }
         },
