@@ -40,7 +40,7 @@
                 });
             },
 
-            /*coordinaten(img) {
+            coordinaten(img) {
                 //emit events
                 img.addEventListener('click', function () {
                     this.x = event.clientX;
@@ -60,7 +60,7 @@
                         y: this.y
                     });
                 });
-            }*/
+            }
         },
         mounted() {
             this.websocket();
