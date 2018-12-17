@@ -49,7 +49,7 @@
             },
 
             makeReviews() {
-                axios.get('http://192.168.87.86:9991/echo/getReviews')
+                axios.post('http://review-tool.test/api/moreReviews');
             },
 
             //add button

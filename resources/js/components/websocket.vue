@@ -24,7 +24,7 @@
         methods: {
             websocket() {
                 //make connections
-                var socket = io('//192.168.87.86:9991', {transports: ['websocket'], upgrade: false});
+                var socket = io(  `//192.168.87.86:9991`, {transports: ['websocket'], upgrade: false});
                 //quiry DOMs
                 var img = document.getElementById('img');
                 var field = document.getElementById('field');
@@ -33,7 +33,7 @@
                     this.imgchunks.push(chunk);
                     img.setAttribute('src', 'data:image/png;base64,' + chunk.buffer);
                 });
-                // this.coordinaten(img);
+                this.coordinaten(img);
                 //listen
                 socket.on('chat', function (data) {
                     field.innerHTML = '<h1>' + data.x + ',' + data.y + '</h1>';

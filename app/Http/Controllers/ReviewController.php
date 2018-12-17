@@ -52,9 +52,14 @@ class ReviewController extends Controller{
         $response = $client->post('echo/formInvullen', [
             'json' => ['data' => $data , 'user' => ['firstname' => 'naam']]
         ]);
-
-        dd(json_decode($response->getBody()->getContents(), true));
         return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function getReview(Request $request ){
+        $client = new Client(['base_uri' => env('PUPPETEER_URL')]);
+
+        $response = $client->post('echo/getReviews');
+        return $response;
     }
 
 }
