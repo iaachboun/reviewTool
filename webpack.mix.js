@@ -16,3 +16,6 @@ mix.js('resources/js/app.js', 'public/js')
    .options({
     processCssUrls: false,
   });
+
+// werkt niet :/
+mix.disableSuccessNotifications();
