@@ -350,6 +350,7 @@
                 }
                 .container {
                     color: white;
+                    margin-top: 6rem;
                 }
                 .nav-link {
                     float: right;
@@ -359,4 +360,7 @@
                 #registerBtn {
                     margin-left: 3rem;
                     margin-top: 1rem;
+                }
+                #laravelContainer {
+                    display: none;
                 }
