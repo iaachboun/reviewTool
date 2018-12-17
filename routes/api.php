@@ -17,16 +17,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::put('/update/{id}', 'puppeteerData@update');
-Route::put('/delete/{id}', 'puppeteerData@delete');
+Route::put('/update/{id}', 'puppeteerController@update');
+Route::put('/delete/{id}', 'puppeteerController@delete');
 
 Route::post('/store', 'FakerController@store');
 Route::get('/store', 'FakerController@test');
 
-Route::post('/save', 'puppeteerData@postReview');
+Route::post('/save', 'puppeteerController@postReview');
 
-Route::get('/inlogData', 'puppeteerData@inlogData');
-Route::get('/reviewData', 'puppeteerData@reviewData');
+Route::get('/reviewData', 'puppeteerController@reviewData');
 
-Route::post('/placeReview', 'puppeteerData@placeReview');
-Route::get('/placeReview', 'puppeteerData@placeReview');
+Route::post('/placeReview', 'puppeteerController@placeReview');
+Route::get('/placeReview', 'puppeteerController@placeReview');
+
+Route::prefix('faker')->group(function () {
+    Route::get('combine/{options}', 'FakerController@combine');
+    Route::get('name', 'FakerController@name');
+    Route::get('username', 'FakerController@username');
+    Route::get('phone', 'FakerController@phone');
+    Route::get('email', 'FakerController@email');
+    Route::get('job', 'FakerController@jobdesc');
+    Route::get('company', 'FakerController@company');
+});
+
+Route::post('review', 'ReviewController@review');
+Route::get('review', 'ReviewController@test');
+
+Route::post('selectedreview', 'ReviewController@selectedreview');
+Route::get('selectedreview', 'ReviewController@selectedreview');

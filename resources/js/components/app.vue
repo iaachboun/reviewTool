@@ -5,11 +5,15 @@
             <nav>
                 <ul>
                     <li>
-                        <router-link to="/" class="nav-item">Review plaatsen</router-link>
+                        <a href='/' class="nav-item">Review plaatsen</a>
                         <div class="hover_stripe"></div>
                     </li>
                     <li>
                         <router-link to="/review" class="nav-item">Review toevoegen</router-link>
+                        <div class="hover_stripe"></div>
+                    </li>
+                    <li>
+                        <a href="/logout" to="/review" class="nav-item">Log out</a>
                         <div class="hover_stripe"></div>
                     </li>
                 </ul>
@@ -32,21 +36,32 @@
                 aantalReviews: ''
             }
         },
+
         methods: {
-            getAantal() {
-                this.aantalReviews = document.querySelectorAll('.goedkeuren').length;
+            reFresh() {
+                alert('does this work');
+                location.reload()
             },
+
             getReviews() {
-                axios.get('http://review-backend.test/api/reviewData')
+                axios.get('http://review-tool.test/api/reviewData')
                     .then(response => {
                         this.reviews = response.data.data;
                     });
             },
         },
-        mounted() {
-            this.getReviews();
-            setTimeout(this.getAantal, 100)
+
+        //reloads alleen Review plaatsen wanneer je ernaar toe gaat
+        watch: {
+            '$route'(to) {
+                if (to.path === '/') {
+                    location.reload();
+                }
+            }
         },
 
+        mounted() {
+            this.getReviews();
+        },
     }
 </script>

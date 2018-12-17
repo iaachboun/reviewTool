@@ -2,32 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\inlogData;
 use Illuminate\Http\Request;
 use App\Http\Resources\inloggenRecourse;
 use App\review;
 
-class puppeteerData extends Controller
+class puppeteerController extends Controller
 {
     /**
      * gives fake data to ..
      */
-    public function inlogData(Request $request)
-    {
-        $review = inlogData::all();
-        return inloggenRecourse::collection($review);
-    }
-
-    /**
-     * gives fake data to ..
-     */
-    public function reviewData(Request $request)
-    {
-        $reviewData = review::all()->take(100);
+    public function reviewData(Request $request){
+        $reviewData = review::all();
         return inloggenRecourse::collection($reviewData);
     }
-    public function placeReview(Request $request)
-    {
+
+    public function placeReview(Request $request){
         $data = $request->getContent();
         echo $data;
         echo 'test';
@@ -36,8 +25,7 @@ class puppeteerData extends Controller
         //server.get('/echo/formInvullen');
     }
 
-    public function postReview(Request $request)
-    {
+    public function postReview(Request $request){
         $data = $request->getContent();
         $dataex = json_decode($data, true);
 
@@ -46,12 +34,10 @@ class puppeteerData extends Controller
         $review->status = 0;
         $review->source = $dataex["source"];
         $review->save();
-
         return $dataex;
     }
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $review = review::where('id', $id)->first();
         $newReview = $request->all();
         $review->review = $newReview{"review"};
@@ -60,11 +46,12 @@ class puppeteerData extends Controller
         return response()->json(['message' => 'review updated']);
     }
 
-    public function delete(Request $request, $id)
-    {
+    public function delete(Request $request, $id){
         $review = review::where('id', $id)->first();
-        $review->delete();
+        $newReview = $request->all();
+        $review->status = $newReview{"status"};
+        $review->save();
         return response()->json(['message' => 'review updated']);
     }
-
 }
+

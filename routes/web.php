@@ -11,31 +11,28 @@
 |
 */
 
-Route::get('/', 'BaseController@index');
+//Auth::routes();
+//Route::get('/', 'BaseController@index');
 
-Route::prefix('faker')->group(function () {
-    Route::get('combine/{options}', 'FakerController@combine');
-    Route::get('name', 'FakerController@name');
-    Route::get('username', 'FakerController@username');
-    Route::get('phone', 'FakerController@phone');
-    Route::get('email', 'FakerController@email');
-    Route::get('job', 'FakerController@jobdesc');
-    Route::get('company', 'FakerController@company');
-});
+//Route::get('login', 'BaseController@login')->name('login');
 
-Route::post('review', 'ReviewController@review');
-Route::get('review', 'ReviewController@test');
 
-/*Route::prefix('review')->group(function () {
-    Route::get('combine.{options}', 'ReviewController@combine');
-    Route::get('name', 'ReviewController@Robohost');
-    Route::get('name', 'ReviewController@iXLhosting');
-    Route::get('name', 'ReviewController@HostingNet');
-    Route::get('name', 'ReviewController@Domeinwinkel');
-    Route::get('name', 'ReviewController@Hosting2Go');
-    Route::get('name', 'ReviewController@Mijndomein');
-    Route::get('name', 'ReviewController@SoHosted');
-    Route::get('name', 'ReviewController@Antagonist');
-    Route::get('name', 'ReviewController@Hostnet');
-    Route::get('name', 'ReviewController@Versio');
-});*/
+//Route::get('/home', 'HomeController@index')->name('home');
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
