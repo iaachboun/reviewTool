@@ -22,9 +22,7 @@
             },
 
             plaatsReview() {
-                goTrue.$emit('recaptcha', {
-                    hallo: "world"
-                });
+                goTrue.$emit('recaptcha');
 
                 axios.post('http://review-tool.test/api/selectedreview', {review: this.data.review})
                     .then(function (response) {

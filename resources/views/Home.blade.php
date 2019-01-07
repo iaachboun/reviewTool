@@ -20,5 +20,6 @@
 
         <div id="app"></div>
         <script src="../js/app.js" async defer></script>
+        {{--<script src="../js/websocket.js" async defer></script>--}}
     </body>
 </html>
