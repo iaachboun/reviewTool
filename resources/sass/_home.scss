@@ -175,8 +175,16 @@
             }
             /*style for buttons*/
                 .button{
-                    display: block;
                     margin: 0 auto;
+                }
+                #websocket{
+                    position: fixed;
+                    top: 113px;
+                }
+                .recaptcha
+
+                .button, .button2{
+                    display: block;
                     margin-top: 25px;
                     margin-bottom: 10px;
                     font-family: inherit;
@@ -192,13 +200,13 @@
                     font-weight: 400;
                     transition: all 0.5s ease;
                 }
-                .button:hover{
+                .button:hover, .button2:hover{
                     transition: all 0.5s ease;
                     background-position: 100% 32%;
                     background-color: $hoveringBlue;
                     cursor:pointer;
                 }
-                .button:focus{
+                .button:focus, .button2:focus{
                     outline: none;
                 }
                 .btn{

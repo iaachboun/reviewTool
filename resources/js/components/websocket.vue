@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div id="websocket">
-            <div id="field"></div>
+        <div v-if="show" id="websocket">
             <img id="img" src="" class="reCaptcha">
+            <button class="button2">READY</button>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
         methods: {
             websocket() {
                 //make connections
-                var socket = io.connect(`//192.168.87.94:9991`, {transports: ['websocket'], upgrade: false});
+                var socket = io.connect(`//192.168.87.86:9991`, {transports: ['websocket'], upgrade: false});
                 //quiry DOMs
                 var img = document.getElementById('img');
                 var field = document.getElementById('field');
@@ -74,11 +74,5 @@
 <style>
     body {
         color: white;
-    }
-
-    .reCaptcha {
-        position: fixed;
-        left: 51px;
-        top: 115px;
     }
 </style>
