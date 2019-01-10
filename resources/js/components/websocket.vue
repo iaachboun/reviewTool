@@ -1,11 +1,10 @@
 <template>
     <div>
-        <div v-if="show" id="websocket">
-            <img id="img" src="" class="reCaptcha">
+        <div id="websocket">
+            <img id="img" ref="img" src="" class="reCaptcha"> 
             <button class="button2">READY</button>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -16,7 +15,8 @@
         data() {
             return {
                 imgchunks: [],
-                show: false
+                show: false,
+                socketIsConnected: false,
             }
         },
 
@@ -26,8 +26,19 @@
                 var socket = io.connect(`//192.168.87.86:9991`, {transports: ['websocket'], upgrade: false});
 
                 //quiry DOMs
-                var img = document.getElementById('img');
-                var field = document.getElementById('field');
+                const img = this.$refs.img;
+                var sessionid = document.getElementById("session").value;
+                
+                socket.on('connect', () =>{
+                    if(!this.socketIsConnected){
+                        socket.emit('ehlo', {
+                            id: sessionid
+                        });
+                    this.coordinaten(socket);
+                    this.socketIsConnected = true;
+                    }else{
+                    }
+                });
 
                 socket.on('img-chunk', (chunk) => {
                     console.log(chunk);
@@ -35,7 +46,6 @@
                     img.setAttribute('src', 'data:image/png;base64,' + chunk.buffer);
                 });
 
-                this.coordinaten(img, socket);
                 //listen
                 socket.on('chat', (data) => {
                     field.innerHTML = '<h1>' + data.x + ',' + data.y + '</h1>';
@@ -50,7 +60,8 @@
                 });
             },
 
-            coordinaten(img, socket) {
+            coordinaten(socket) {
+                const img = this.$refs.img;
                 //emit events
                 img.addEventListener('click', function () {
                     var x = event.clientX;
@@ -65,7 +76,6 @@
         },
         mounted() {
             goTrue.$on('recaptcha', (bool) => {
-                this.show = true;
                 this.websocket();
             })
         }
