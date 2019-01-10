@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div id="websocket">
-            <div id="field"></div>
+        <div v-if="show" id="websocket">
             <img id="img" src="" class="reCaptcha">
+            <button class="button2">READY</button>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
         methods: {
             websocket() {
                 //make connections
-                var socket = io.connect(`//192.168.102:9991`, {transports: ['websocket'], upgrade: false});
+                var socket = io.connect(`//192.168.87.86:9991`, {transports: ['websocket'], upgrade: false});
 
                 //quiry DOMs
                 var img = document.getElementById('img');
@@ -55,7 +55,7 @@
                 img.addEventListener('click', function () {
                     var x = event.clientX;
                     var y = event.clientY;
-
+                    console.log(x , y);
                     socket.emit('click', {
                         x: x,
                         y: y
@@ -77,9 +77,11 @@
         color: white;
     }
 
-    .reCaptcha {
-        position: fixed;
-        left: 51px;
-        top: 115px;
+    .reCaptcha{
+        margin-left: 11%;
+    }
+
+    .button2{
+        margin: 0 0 0 38%;
     }
 </style>
