@@ -13,11 +13,14 @@
         <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
+        <?php 
+            $session_id = Session::getId();
+        ?>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script> -->
-
+        <input id="session" type="text" value="<?= $session_id ?>">
         <div id="app"></div>
         <script src="../js/app.js" async defer></script>
         {{--<script src="../js/websocket.js" async defer></script>--}}
