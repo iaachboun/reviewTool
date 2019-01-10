@@ -44,3 +44,6 @@ Route::get('review', 'ReviewController@test');
 Route::post('moreReviews', 'ReviewController@getReview');
 Route::post('selectedreview', 'ReviewController@selectedreview');
 Route::get('selectedreview', 'ReviewController@selectedreview');
+
+Route::post('submitReview', 'ReviewController@submitReview');
+
