@@ -1,6 +1,7 @@
 <template>
     <div>
         <div id="websocket">
+
             <img id="img" ref="img" src="" class="reCaptcha">
             <button class="button2" @click="submitReview">READY</button>
         </div>
@@ -40,7 +41,7 @@
             websocket() {
                 this.sessionId();
                 //make connections
-                var socket = io.connect(`//192.168.87.92:9991`, {transports: ['websocket'], upgrade: false});
+                var socket = io.connect(`//192.168.87.86:9991`, {transports: ['websocket'], upgrade: false});
 
                 //quiry DOMs
                 const img = this.$refs.img;

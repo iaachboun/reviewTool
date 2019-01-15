@@ -3,7 +3,7 @@
         <p class="review-text"
            onclick='this.style.height = ""; this.style.height = this.scrollHeight + "px"'>
             {{data.review}}</p>
-        <button class="btn blue" id="uploadReview" @click=" oneClick()">Plaats review</button>
+        <button class="btn blue" id="uploadReview" @click="plaatsReview()">Plaats review</button>
         <button class="btn red" @click="deleteFromPage(data.id)"><i class="fas fa-times"></i></button>
     </div>
 </template>
@@ -26,17 +26,19 @@
                 this.$parent.reviews = saveReviewList;
             },
 
-            oneClick() {
+            ClickBlauwOnce() {
                 this.blauwX = event.clientX;
                 this.blauwY = event.clientY;
-                location.reload();
-                this.plaatsReview();
-                document.elementFromPoint(this.blauwX, this.blauwY).click();
+                this.plaatsReview().then(function () {
+                    location.reload().then(function () {
+                        document.elementFromPoint(this.blauwX, this.blauwY).click();
+                    });
+                });
             },
 
             plaatsReview() {
                 goTrue.$emit('recaptcha');
-
+                img.setAttribute('src', '/assets/img/default.gif');
                 axios.post('http://review-tool.test/api/selectedreview', {review: this.data.review})
                     .then(function (response) {
                         console.log(response);
