@@ -16,12 +16,15 @@ use Response;
  * Class FakerController
  * @package App\Http\Controllers
  */
-class ReviewController extends Controller{
-    public function __construct(){
+class ReviewController extends Controller
+{
+    public function __construct()
+    {
         $this->middleware('guest');
     }
 
-    public function review(Request $request){
+    public function review(Request $request)
+    {
         $data = $request->all();
 
         $sources = array("Robohost", "iXLhosting", "HostingNet", "Domeinwinkel", "Hosting2Go", "Mijndomein", "SoHosted", "Antagonist", "Hostnet", "Versio");
@@ -44,12 +47,14 @@ class ReviewController extends Controller{
         }
     }
 
-    public function selectedreview(Request $request ){
+    public function selectedreview(Request $request)
+    {
+
         $client = new Client(['base_uri' => env('PUPPETEER_URL')]);
         $data = $request->all();
         $response = $client->post('echo/formInvullen', [
             'json' => [
-                'data' => $data ,
+                'data' => $data,
                 'user' => [
                     'name' => 'naam data',
                     'company' => 'company data',
@@ -60,14 +65,16 @@ class ReviewController extends Controller{
         return json_decode($response->getBody()->getContents(), true);
     }
 
-    public function getReview(Request $request ){
+    public function getReview(Request $request)
+    {
         $client = new Client(['base_uri' => env('PUPPETEER_URL')]);
 
         $response = $client->post('echo/getReviews');
         return $response;
     }
 
-    public function submitReview(Request $request ){
+    public function submitReview(Request $request)
+    {
         $client = new Client(['base_uri' => env('PUPPETEER_URL')]);
 
         $response = $client->post('echo/submitReview');
