@@ -73,11 +73,17 @@ class ReviewController extends Controller
         return $response;
     }
 
-    public function submitReview(Request $request)
-    {
+    public function submitReview(Request $request){
         $client = new Client(['base_uri' => env('PUPPETEER_URL')]);
 
         $response = $client->post('echo/submitReview');
+        return $response;
+    }
+
+    public function continueForm(Request $request){
+        $client = new Client(['base_uri' => env('PUPPETEER_URL')]);
+
+        $response = $client->post('echo/continueForm');
         return $response;
     }
 

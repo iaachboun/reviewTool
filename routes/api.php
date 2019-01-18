@@ -46,4 +46,5 @@ Route::post('selectedreview', 'ReviewController@selectedreview');
 Route::get('selectedreview', 'ReviewController@selectedreview');
 
 Route::post('submitReview', 'ReviewController@submitReview');
+Route::post('continueForm', 'ReviewController@continueForm');
 

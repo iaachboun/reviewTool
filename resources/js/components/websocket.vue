@@ -1,8 +1,8 @@
 <template>
     <div>
         <div id="websocket">
-            <button class="button3" @click="emitNewEmail">Use this email?</button>
-            <input type="text" v-model="this.email" class="emailField">
+            <button class="button3" @click="tweedeDeel">Use this email?</button>
+            <input type="text" ref="mail" v-model="this.email" class="emailField">
 
             <img id="img" ref="img" src="" class="reCaptcha">
             <button class="button2" @click="submitReview">READY</button>
@@ -30,6 +30,12 @@
         },
 
         methods: {
+            tweedeDeel() {
+                var goodMail = this.$refs.mail.value;
+                this.socket.emit('new-email', goodMail);
+                axios.post('http://review-tool.test/api/continueForm');
+            },
+
             submitReview() {
                 axios.post('http://review-tool.test/api/submitReview');
             },
@@ -40,11 +46,6 @@
 
             sessionId() {
                 this.sessionid = Math.floor(Math.random() * 9999999999) + 1;
-            },
-
-            emitNewEmail(){
-                console.log(this.email);
-                this.socket.emit('new-email', this.email);
             },
 
             websocket() {
@@ -125,7 +126,7 @@
 <style>
     .emailField {
         position: absolute;
-        margin: 0 0 0 38% ;
+        margin: 0 0 0 38%;
     }
 
     body {
