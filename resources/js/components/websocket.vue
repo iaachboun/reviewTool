@@ -1,9 +1,10 @@
 <template>
     <div>
-        <div id="websocket">
+        <div class="email">
             <button class="button3" @click="emitNewEmail">Use this email?</button>
             <input type="text" v-model="this.email" class="emailField">
-
+        </div>
+        <div id="websocket">
             <img id="img" ref="img" src="" class="reCaptcha">
             <button class="button2" @click="submitReview">READY</button>
         </div>
