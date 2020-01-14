@@ -1,9 +1,11 @@
 <template>
     <div>
-        <div id="websocket">
-            <button class="button3" @click="tweedeDeel">Use this email?</button>
-            <input type="text" ref="mail" v-model="this.email" class="emailField">
 
+        <div class="email">
+            <button class="button3" @click="tweedeDeel">Use this email?</button>
+            <input type="text" v-model="this.email" class="emailField" id="inputEmail">
+        </div>
+        <div id="websocket">
             <img id="img" ref="img" src="" class="reCaptcha">
             <button class="button2" @click="submitReview">READY</button>
         </div>
@@ -31,18 +33,15 @@
 
         methods: {
             tweedeDeel() {
-                var goodMail = this.$refs.mail.value;
+                var goodMail = document.getElementById('inputEmail').value;
+                console.log(goodMail);
                 this.socket.emit('new-email', goodMail);
-                axios.post('http://review-tool.test/api/continueForm');
+                // axios.post('http://review-tool.test/api/continueForm');
             },
 
             submitReview() {
                 axios.post('http://review-tool.test/api/submitReview');
             },
-
-            /*trueToFalse(){
-                this.uploadRecaptcha = false
-            },*/
 
             sessionId() {
                 this.sessionid = Math.floor(Math.random() * 9999999999) + 1;
@@ -88,6 +87,7 @@
                     this.imgchunks.push(chunk);
                     img.setAttribute('src', 'data:image/png;base64,' + chunk.buffer);
                 });
+
                 this.socket.on('email-chunk', (email) => {
                     this.email = email
                 });
