@@ -20,7 +20,7 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
-    "ajv": "^6.6.1",
+    "ajv": "^6.12.3",
     "express": "^4.16.4",
     "focus-visible": "^4.1.5",
     "imagemin": "^6.0.0",
