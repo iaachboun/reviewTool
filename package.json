@@ -14,10 +14,10 @@
     "bootstrap": "^4.0.0",
     "cross-env": "^5.1",
     "jquery": "^3.2",
-    "laravel-mix": "^2.1.14",
+    "laravel-mix": "^6.0.49",
     "lodash": "^4.17.5",
     "popper.js": "^1.14.6",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "ajv": "^6.6.1",
@@ -25,12 +25,12 @@
     "focus-visible": "^4.1.5",
     "imagemin": "^6.0.0",
     "img": "^3.0.3",
-    "img-loader": "^3.0.1",
+    "img-loader": "^3.0.2",
     "restify": "^7.3.0",
     "socket.io": "^2.2.0",
     "vue": "^2.5.19",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.2",
-    "webpack": "3.11.0"
+    "webpack": "5.75.0"
   }
 }
